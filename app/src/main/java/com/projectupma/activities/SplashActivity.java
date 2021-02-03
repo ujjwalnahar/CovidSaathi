@@ -1,21 +1,21 @@
-package com.projectupma;
+package com.projectupma.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import com.projectupma.R;
+
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
-
+        setContentView(R.layout.activity_splash);
     }
 
+    public void gotoLogin(View view) {
+
+    }
 }
