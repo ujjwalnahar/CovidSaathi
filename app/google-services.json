@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "783277900298",
+    "project_id": "project-upma",
+    "storage_bucket": "project-upma.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783277900298:android:a6f6eb58d66bb0d356d5f3",
+        "android_client_info": {
+          "package_name": "com.projectupma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783277900298-fvn90cntapjmra16a4nqa1pajc6ljvtt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.projectupma",
+            "certificate_hash": "1999b4f64f06728f34b6c14c4da16aaaac86249e"
+          }
+        },
+        {
+          "client_id": "783277900298-a0vqvoipceo4ldkav4gvnlofmqap4o2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcPE2KDTU2Bl7QSXc6WUCTGBgQ2xb0L58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783277900298-a0vqvoipceo4ldkav4gvnlofmqap4o2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
