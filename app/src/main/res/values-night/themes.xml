@@ -1,16 +1,69 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ProjectUpma" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.ProjectUpma" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorPrimaryVariant">@color/color3</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondary">@color/color4</item>
+        <item name="colorSecondaryVariant">@color/color4</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/primarygrey</item>
         <!-- Customize your theme here. -->
+
     </style>
+    <style name="DayNightFAB" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:src"  >@drawable/dark_mode_icon</item>
+    </style>
+
+    <style name="CardViewNoticeTheme" parent="Widget.MaterialComponents.CardView">
+        <item name="strokeColor">@color/black50</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="cardBackgroundColor">@color/secondarygrey50</item>
+    </style>
+
+
+    <style name="TEXTBODY16" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:fontFamily">@font/poppins</item>
+
+    </style>
+
+    <style name="LightPane" parent="Theme.MaterialComponents">
+        <item name="android:background">@color/primarygrey</item>
+        <item name="android:backgroundTint">@color/primarygrey</item>
+    </style>
+
+    <style name="DarkPane" parent="Theme.MaterialComponents">
+        <item name="android:background">@color/secondarygrey</item>
+        <item name="android:backgroundTint">@color/secondarygrey</item>
+    </style>
+
+    <style name="BackgroundPane" parent="Theme.MaterialComponents">
+        <item name="android:background">@color/secondarygrey</item>
+        <item name="android:backgroundTint">@color/secondarygrey</item>
+    </style>
+    <style name="Background50Pane" parent="Theme.MaterialComponents">
+        <item name="android:background"  >@color/secondarygrey50</item>
+        <item name="android:backgroundTint"  >@color/secondarygrey50</item>
+
+    </style>
+    <style name="Background90Pane" parent="Theme.MaterialComponents">
+        <item name="android:background"  >@color/black90</item>
+        <item name="android:backgroundTint"  >@color/black90</item>
+
+    </style>
+    <style name="BWBackgroundPane" parent="Theme.MaterialComponents">
+        <item name="android:background">@color/secondarygrey</item>
+        <item name="android:backgroundTint">@color/secondarygrey</item>
+    </style>
+    <style name="home_FAB" parent="Theme.MaterialComponents">
+        <item name="android:background">@color/secondarygrey</item>
+        <item name="android:backgroundTint">@color/secondarygrey</item>
+    </style>
+
+
 </resources>

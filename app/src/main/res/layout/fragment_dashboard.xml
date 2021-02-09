@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.DashboardFragment">
+
+    <com.smarteist.autoimageslider.SliderView
+        android:id="@+id/dashboard_image_slider_view"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:sliderAnimationDuration="1000"
+        app:sliderAutoCycleDirection="right"
+        app:sliderAutoCycleEnabled="true"
+        app:sliderIndicatorEnabled="false"
+        app:sliderScrollTimeInSec="2"
+        app:sliderStartAutoCycle="true" />
+
+    <LinearLayout
+        android:paddingTop="32dp"
+        android:paddingHorizontal="32dp"
+        android:paddingBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/TEXTBODY16"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="JEC Notice" />
+        <TextView
+            android:id="@+id/jec_notice_view_more_button"
+            style="@style/TEXTBODY16"
+            android:layout_width="0dp"
+            android:textColor="@color/accent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:textAlignment="textEnd"
+            android:text="View All" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/jec_notice_recyclerView"
+        android:nestedScrollingEnabled="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
