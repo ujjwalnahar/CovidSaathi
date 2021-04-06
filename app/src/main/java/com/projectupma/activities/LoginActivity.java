@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.LauncherActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -65,6 +66,10 @@ public class LoginActivity extends AppCompatActivity {
 
                  FirebaseUser user = auth.getCurrentUser();
                  String userId = user.getUid();
+                 SharedPreferences sharedPreferences=getSharedPreferences("userInfo",MODE_PRIVATE);
+                 SharedPreferences.Editor edit = sharedPreferences.edit();
+                 edit.putBoolean("isSignedIn",true);
+                 edit.apply();
                  Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                  intent.putExtra("userId", userId);
                  startActivity(intent);
