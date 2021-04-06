@@ -13,6 +13,8 @@
     <color name="primarygrey">#1F1D24</color>
     <color name="primarygrey50">#771F1D24</color>
     <color name="lightgrey">#F0F0F0</color>
+    <color name="lightPeach">#FFEBE5</color>
+    <color name="darkPeach">#ff8b69</color>
     <color name="mediumgrey">#DADADA</color>
     <color name="accent">#FF5700</color>
     <color name="secondarygrey">#110F15</color>

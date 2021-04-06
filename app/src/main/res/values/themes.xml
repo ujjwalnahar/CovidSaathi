@@ -68,12 +68,20 @@
         <item name="android:backgroundTint"  >@color/white</item>
 
     </style>
-
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">24sp</item>
+        <item name="font">@font/poppins</item>
+    </style>
+<style name="toolbarStyle" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+    <item name="android:background">@color/white</item>
+    <item name="titleTextColor">@color/accent</item>
+    <item name="backgroundTint">@color/accent</item>
+    <item name="android:textSize">24sp</item>
+</style>
     <style name="home_FAB" parent="Theme.MaterialComponents">
         <item name="android:background">@color/white</item>
         <item name="android:backgroundTint">@color/white</item>
     </style>
-
     <style name="DizqusCommentText">
         <item name="boxCornerRadiusBottomEnd">5dp</item>
         <item name="boxCornerRadiusBottomStart">5dp</item>
@@ -82,4 +90,14 @@
 
     </style>
 
+
+    <style name="ShapeAppearance.App.CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="CardViewBackground" parent="Theme.MaterialComponents" >
+        <item name="android:background">@color/lightPeach</item>
+        <item name="android:backgroundTint">@color/lightPeach</item>
+    </style>
 </resources>

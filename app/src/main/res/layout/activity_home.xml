@@ -104,7 +104,13 @@
 
 
 
-
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:id="@+id/btn_resources"
+    android:layout_gravity="center|top"
+    android:layout_margin="20dp"
+    />
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 style="@style/home_FAB"
                 android:id="@+id/home_FAB"

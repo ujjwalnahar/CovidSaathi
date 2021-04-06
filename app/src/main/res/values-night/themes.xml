@@ -70,6 +70,10 @@
         <item name="android:background">@color/secondarygrey</item>
         <item name="android:backgroundTint">@color/secondarygrey</item>
     </style>
+    <style name="CardViewBackground" parent="Theme.MaterialComponents" >
+        <item name="android:background">@color/grey</item>
+        <item name="android:backgroundTint">@color/grey</item>
+    </style>
 
     <style name="DizqusCommentText"></style>
 

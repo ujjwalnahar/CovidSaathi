@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,7 @@ import com.projectupma.Db;
 import com.projectupma.R;
 import com.projectupma.fragments.DashboardFragment;
 import com.projectupma.fragments.NoticeBoardFragment;
+import com.projectupma.fragments.ResourcesFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -39,12 +41,15 @@ public class HomeActivity extends AppCompatActivity {
     public static FragmentManager fragmentManager;
     ImageView home_background_imageView;
     FloatingActionButton dayNightFAB;
+    FloatingActionButton resources;
     FloatingActionButton home_FAB;
     FrameLayout dashboard_frameLayout;
     NestedScrollView nested_home_scrollView;
     TextView urgent_message_text;
     TextView urgent_message_title;
+    TextView txt_proifleName;
     MaterialCardView urgent_message_cardView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +63,7 @@ public class HomeActivity extends AppCompatActivity {
         FirebaseFirestore.setLoggingEnabled(true);
         dayNightFAB = findViewById(R.id.dayNightFAB);
         home_FAB = findViewById(R.id.home_FAB);
+        txt_proifleName=findViewById(R.id.txt_profile_name);
         home_background_imageView = findViewById(R.id.home_background_imageView);
         dashboard_frameLayout = findViewById(R.id.dashboard_frameLayout);
         nested_home_scrollView = findViewById(R.id.nested_home_scrollView);
@@ -65,6 +71,7 @@ public class HomeActivity extends AppCompatActivity {
         urgent_message_title = findViewById(R.id.urgent_message_title);
         urgent_message_cardView = findViewById(R.id.urgent_message_cardView);
         fragmentManager = getSupportFragmentManager();
+        resources=findViewById(R.id.btn_resources);
     }
 
     private void methods(Bundle savedInstanceState) {
@@ -72,6 +79,8 @@ public class HomeActivity extends AppCompatActivity {
         setDashboardFragment(savedInstanceState);
         homeButtonClick(savedInstanceState);
         urgentMessageGetter();
+        profileButtonClickListner();
+
 
     }
 
@@ -121,8 +130,25 @@ public class HomeActivity extends AppCompatActivity {
         if (savedInstanceState != null) return;
         fragmentManager.beginTransaction().replace(R.id.dashboard_frameLayout, new DashboardFragment()).commit();
 
-
     }
+    private void profileButtonClickListner(){
+        txt_proifleName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              //  Intent intent=new Intent(HomeActivity.this,ProfileActivity.class);
+                //startActivity(intent);
+Intent intent=new Intent(HomeActivity.this,ProfileActivity.class);
+            startActivity(intent);}
+
+    });
+        resources.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragmentManager.beginTransaction().replace(R.id.dashboard_frameLayout,new ResourcesFragment()).commit();
+
+            }
+        });
+}
 
     private void homeBackgroundSetter() {
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {

@@ -14,11 +14,11 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-    }
-
-    public void gotoLogin(View view) {
-        Intent i=new Intent(this,HomeActivity.class);
+        Intent i=new Intent(this,LoginActivity.class);
         startActivity(i);
-
+    }
+    public void gotoLogin(View view) {
+        Intent i=new Intent(this,SignupActivity.class);
+        startActivity(i);
     }
 }

@@ -6,6 +6,11 @@
         android:title="search"
         app:showAsAction="ifRoom"
         />
+    <item
+        android:id="@+id/resources"
+        android:title="Resources"
+        app:showAsAction="ifRoom"
+        />
 
     <item
         android:id="@+id/profile_bottom_app_bar"
