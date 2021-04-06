@@ -81,6 +81,7 @@ public class SignupActivity extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         setContentView(R.layout.activity_signup);
        initiators();
+        checkPermission(Manifest.permission_group.STORAGE,STORAGE_PERMISSION_CODE);
        signUpButtonClick(savedInstanceState);
        addInfoButtonClick(savedInstanceState);
         storageReference=FirebaseStorage.getInstance();
@@ -258,12 +259,11 @@ public class SignupActivity extends AppCompatActivity {
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults)
     {
-        super
-                .onRequestPermissionsResult(requestCode,
+        super.onRequestPermissionsResult(requestCode,
                         permissions,
                         grantResults);
 
-        if (requestCode ==STORAGE_PERMISSION_CODE ) {
+        if (requestCode ==1000 ) {
 
             // Checking whether user granted the permission or not.
             if (grantResults.length > 0
@@ -298,6 +298,13 @@ public class SignupActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void requestCameraPermission() {
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE},
+                STORAGE_PERMISSION_CODE);
+    }
+
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
 
     public void checkPermission(String permission, int requestCode)
@@ -308,11 +315,7 @@ public class SignupActivity extends AppCompatActivity {
                 SignupActivity.this,
                 permission)
                 == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat
-                    .requestPermissions(
-                            SignupActivity.this,
-                            new String[] { permission },
-                            requestCode);
+            requestCameraPermission();
         }
         else {
             Toast
@@ -453,6 +456,7 @@ String branch=spinnerBranch.getSelectedItem().toString();
                 User user1=new User(userId,name,phone,rollNo,sem,branch,college,edtPassword.getText().toString(),profilePhotoUrl,"","",email,today,"1","approved");
                 db.collection(Db.user).document(userId).set(user1);
                 Intent intent=new Intent(SignupActivity.this,HomeActivity.class);
+                startActivity(intent);
     }});}
     public final static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
