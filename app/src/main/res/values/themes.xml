@@ -26,6 +26,12 @@
         <item name="cardBackgroundColor">@color/white50</item>
 
     </style>
+    <style name="CardViewDizqusTileTheme" parent="Widget.MaterialComponents.CardView">
+        <item name="strokeColor">@color/mediumgrey</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardBackgroundColor">@color/white50</item>
+
+    </style>
 
 
     <style name="TEXTBODY16" parent="TextAppearance.AppCompat.Body1" >
@@ -66,6 +72,14 @@
     <style name="home_FAB" parent="Theme.MaterialComponents">
         <item name="android:background">@color/white</item>
         <item name="android:backgroundTint">@color/white</item>
+    </style>
+
+    <style name="DizqusCommentText">
+        <item name="boxCornerRadiusBottomEnd">5dp</item>
+        <item name="boxCornerRadiusBottomStart">5dp</item>
+        <item name="boxCornerRadiusTopEnd">5dp</item>
+        <item name="boxCornerRadiusTopStart">5dp</item>
+
     </style>
 
 </resources>

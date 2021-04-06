@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.projectupma">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
@@ -18,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectUpma">
-        <activity android:name=".activities.HomeActivity"></activity>
+        <activity android:name=".adapters.TimeTableActivity"></activity>
+        <activity android:name=".activities.HomeActivity" />
         <activity android:name=".activities.ApprovalActivity" />
         <activity android:name=".activities.SignupActivity" />
         <activity android:name=".activities.LoginActivity" />

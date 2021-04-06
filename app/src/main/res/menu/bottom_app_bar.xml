@@ -2,14 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/search"
+        android:id="@+id/search_bottom_app_bar"
         android:title="search"
         app:showAsAction="ifRoom"
         />
 
     <item
-        android:id="@+id/more"
-        android:title="more"
+        android:id="@+id/profile_bottom_app_bar"
+        android:title="Profile"
+        app:showAsAction="never"
+        /><item
+        android:id="@+id/resources_bottom_app_bar"
+        android:title="Resources"
+        app:showAsAction="never"
+        /><item
+        android:id="@+id/societies_bottom_app_bar"
+        android:title="Societies"
+        app:showAsAction="never"
+        /><item
+        android:id="@+id/leaderboard_bottom_app_bar"
+        android:title="Leaderboard"
+        app:showAsAction="never"
+        /><item
+        android:id="@+id/events_bottom_app_bar"
+        android:title="Events"
         app:showAsAction="never"
         />
 </menu>
