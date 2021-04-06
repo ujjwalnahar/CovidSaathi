@@ -23,7 +23,12 @@
         <item name="strokeWidth">0dp</item>
         <item name="cardBackgroundColor">@color/secondarygrey50</item>
     </style>
+    <style name="CardViewDizqusTileTheme" parent="Widget.MaterialComponents.CardView">
+        <item name="strokeColor">@color/mediumgrey</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="cardBackgroundColor">@color/secondarygrey50</item>
 
+    </style>
 
     <style name="TEXTBODY16" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textColor">@color/white</item>
@@ -31,6 +36,7 @@
         <item name="android:fontFamily">@font/poppins</item>
 
     </style>
+
 
     <style name="LightPane" parent="Theme.MaterialComponents">
         <item name="android:background">@color/primarygrey</item>
@@ -68,6 +74,8 @@
         <item name="android:background">@color/grey</item>
         <item name="android:backgroundTint">@color/grey</item>
     </style>
+
+    <style name="DizqusCommentText"></style>
 
 
 </resources>

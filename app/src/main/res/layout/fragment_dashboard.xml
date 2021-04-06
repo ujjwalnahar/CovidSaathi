@@ -17,11 +17,24 @@
         app:sliderIndicatorEnabled="false"
         app:sliderScrollTimeInSec="2"
         app:sliderStartAutoCycle="true" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/view_timetable_button_dashboard"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:text="6th Sem CSE TIME-TABLE"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:textAppearance="@style/TEXTBODY16"
+        app:iconGravity="textEnd"
+        app:iconSize="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:icon="@drawable/timetable_icon"
+        app:cornerRadius="64dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
     <LinearLayout
-        android:paddingTop="32dp"
-        android:paddingHorizontal="32dp"
-        android:paddingBottom="8dp"
+        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -44,10 +57,72 @@
             android:text="View All" />
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/jec_notice_recyclerView"
+        android:id="@+id/jec_notice_recyclerView_dashboard"
         android:nestedScrollingEnabled="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:padding="16dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/TEXTBODY16"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Dizqus" />
+        <TextView
+            android:id="@+id/dizqus_show_more_button"
+            style="@style/TEXTBODY16"
+            android:layout_width="0dp"
+            android:textColor="@color/accent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:textAlignment="textEnd"
+            android:text="Show All" />
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        app:singleSelection="true"
+        android:gravity="center"
+        app:selectionRequired="true"
+        app:checkedButton="@+id/dizqus_hot_toggle_button_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dizqus_hot_toggle_button_dashboard"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_weight="1"
+            android:text="Hot"
+            app:cornerRadius="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="Latest"
+            android:layout_weight="1"
+            app:cornerRadius="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="Trending"
+            android:layout_weight="1"
+            app:cornerRadius="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dizqus_recyclerView_dashboard"
+        android:nestedScrollingEnabled="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
 
 
 </LinearLayout>

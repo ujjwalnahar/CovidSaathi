@@ -8,8 +8,8 @@
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:paddingHorizontal="32dp"
-            android:paddingVertical="16dp"
+            android:padding="16dp"
+
 
             android:layout_height="wrap_content">
             <TextView
@@ -34,14 +34,21 @@
                 android:textAlignment="viewEnd"
                 android:layout_weight="10"
                 android:layout_height="wrap_content"/>
-            <ImageView
-                android:layout_weight="3"
-                android:layout_gravity="center"
-                android:layout_width="0dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/round_account_circle_icon"
-                android:layout_height="match_parent"
-                app:tint="@color/accent" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/notice_rotate_cardView1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="4dp"
+                app:cardBackgroundColor="@color/accent"
+                app:cardCornerRadius="100dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:src="@drawable/profile_sample" />
+
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
 </RelativeLayout>
