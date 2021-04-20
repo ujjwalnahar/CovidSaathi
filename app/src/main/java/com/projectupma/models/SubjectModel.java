@@ -1,9 +1,9 @@
-package com.projectupma.DataClasses;
+package com.projectupma.models;
 
-public class Subject {
+public class SubjectModel {
     String subjectName;
 
-    public Subject(String subjectName, String subjectCode) {
+    public SubjectModel(String subjectName, String subjectCode) {
         this.subjectName = subjectName;
         this.subjectCode = subjectCode;
     }

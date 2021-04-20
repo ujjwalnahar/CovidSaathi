@@ -48,7 +48,7 @@ public class NoticeBoardFragment extends Fragment {
 
     private void loadNotice() {
         List<JECNoticeModel> models = new ArrayList<>();
-        db.collection(Db.base+"/JEC_NOTICE")
+        db.collection(Db.BASE +"/JEC_NOTICE")
                 .orderBy("date", Query.Direction.DESCENDING)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

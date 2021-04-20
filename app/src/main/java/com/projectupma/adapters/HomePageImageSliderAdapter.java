@@ -2,13 +2,16 @@ package com.projectupma.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -37,7 +40,7 @@ public class HomePageImageSliderAdapter extends
     private List<SliderItem> mSliderItems = new ArrayList<>();
 
     public HomePageImageSliderAdapter(Context context) {
-        db.collection(Db.slider)
+        db.collection(Db.DASHBOARD_SLIDER)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -110,6 +113,7 @@ public class HomePageImageSliderAdapter extends
 
         public SliderAdapterVH(View itemView) {
             super(itemView);
+
             slider_image = itemView.findViewById(R.id.slider_image);
             slider_title_text = itemView.findViewById(R.id.slider_title_text);
             this.itemView = itemView;

@@ -1,7 +1,6 @@
 package com.projectupma.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.card.MaterialCardView;
 import com.projectupma.R;
 import com.projectupma.models.JECNoticeModel;
+import com.projectupma.utils.AnimationClass;
 
 import java.util.List;
+
+import soup.neumorphism.NeumorphCardView;
 
 public class JECNoticeAdapter extends RecyclerView.Adapter<JECNoticeAdapter.ViewHolder> {
 
@@ -57,8 +59,7 @@ public class JECNoticeAdapter extends RecyclerView.Adapter<JECNoticeAdapter.View
         onMoreClick(holder, position);
         moveCardView(holder, position);
         moveCardViewOnCardClick(holder, position);
-        viewMoreTextOnClick(holder,position);
-
+        viewMoreTextOnClick(holder, position);
 
 
     }
@@ -67,10 +68,9 @@ public class JECNoticeAdapter extends RecyclerView.Adapter<JECNoticeAdapter.View
         holder.notice_title_textView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (holder.notice_title_textView1.getMaxLines()>2){
+                if (holder.notice_title_textView1.getMaxLines() > 2) {
                     holder.notice_title_textView1.setMaxLines(2);
-                }
-                else {
+                } else {
                     holder.notice_title_textView1.setMaxLines(15);
                 }
             }
@@ -78,10 +78,9 @@ public class JECNoticeAdapter extends RecyclerView.Adapter<JECNoticeAdapter.View
         holder.notice_title_textView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (holder.notice_title_textView2.getMaxLines()>2){
+                if (holder.notice_title_textView2.getMaxLines() > 2) {
                     holder.notice_title_textView2.setMaxLines(2);
-                }
-                else {
+                } else {
                     holder.notice_title_textView2.setMaxLines(15);
                 }
             }
@@ -92,14 +91,15 @@ public class JECNoticeAdapter extends RecyclerView.Adapter<JECNoticeAdapter.View
         holder.notice_rotate_cardView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                moveCardView(holder,position);
+                moveCardView(holder, position);
                 randomRotation(holder, position);
 
             }
-        });holder.notice_rotate_cardView2.setOnClickListener(new View.OnClickListener() {
+        });
+        holder.notice_rotate_cardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                moveCardView(holder,position);
+                moveCardView(holder, position);
                 randomRotation(holder, position);
 
             }
@@ -111,7 +111,7 @@ public class JECNoticeAdapter extends RecyclerView.Adapter<JECNoticeAdapter.View
 
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) holder.moving_cardView.getLayoutParams();
         float d = context.getResources().getDisplayMetrics().density;
-        params.setMargins(0, (int) (20*d + Math.random() * 30*d), 0, 0);
+        params.setMargins(15, (int) (50 * d + Math.random() * 30 * d), 15, 0);
         if (position % 2 != 0)
             params.addRule(RelativeLayout.ALIGN_PARENT_END);
         holder.moving_cardView.setLayoutParams(params);
@@ -144,7 +144,7 @@ public class JECNoticeAdapter extends RecyclerView.Adapter<JECNoticeAdapter.View
     }
 
     private void setData(ViewHolder holder, int position) {
-        JECNoticeModel model=models.get(position);
+        JECNoticeModel model = models.get(position);
         holder.notice_title_textView1.setText(model.getText());
         holder.notice_title_textView2.setText(model.getText());
         holder.notice_date_textView1.setText(model.getDate());
@@ -164,6 +164,7 @@ public class JECNoticeAdapter extends RecyclerView.Adapter<JECNoticeAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
         MaterialCardView moving_cardView;
         MaterialCardView notice_item_cardView1;
+        NeumorphCardView notice_item_neuView;
         MaterialCardView notice_rotate_cardView1;
         TextView notice_title_textView1;
         TextView notice_date_textView1;
@@ -173,12 +174,16 @@ public class JECNoticeAdapter extends RecyclerView.Adapter<JECNoticeAdapter.View
         TextView notice_title_textView2;
         TextView notice_date_textView2;
         ImageView notice_more_imageView2;
+        View view;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            view = itemView;
             initiator(itemView);
-            methods();
+            methods(itemView);
+            animator();
         }
+
 
         private void initiator(View itemView) {
             moving_cardView = itemView.findViewById(R.id.moving_cardView);
@@ -188,14 +193,26 @@ public class JECNoticeAdapter extends RecyclerView.Adapter<JECNoticeAdapter.View
             notice_date_textView1 = itemView.findViewById(R.id.notice_date_textView1);
             notice_more_imageView1 = itemView.findViewById(R.id.notice_more_imageView1);
             notice_rotate_cardView2 = itemView.findViewById(R.id.notice_rotate_cardView2);
+            notice_item_neuView = itemView.findViewById(R.id.notice_item_neuView);
             notice_item_cardView2 = itemView.findViewById(R.id.notice_item_cardView2);
             notice_title_textView2 = itemView.findViewById(R.id.notice_title_textView2);
             notice_date_textView2 = itemView.findViewById(R.id.notice_date_textView2);
             notice_more_imageView2 = itemView.findViewById(R.id.notice_more_imageView2);
         }
 
-        private void methods() {
+        private void animator() {
+            AnimationClass.setAnimationLTR(notice_rotate_cardView1);
+            AnimationClass.setAnimationRTL(notice_rotate_cardView2);
+            AnimationClass.setAnimationLTR(notice_item_cardView1);
+            AnimationClass.setAnimationRTL(notice_item_cardView2);
+            AnimationClass.setAnimationLTR(notice_date_textView1);
+            AnimationClass.setAnimationRTL(notice_date_textView2);
+            AnimationClass.setAnimationLTR(notice_title_textView1);
+            AnimationClass.setAnimationRTL(notice_title_textView2);
+            AnimationClass.setAnimationNeu(notice_item_neuView);
+        }
 
+        private void methods(View itemView) {
         }
 
 
