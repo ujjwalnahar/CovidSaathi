@@ -1,102 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="8dp"
     android:layout_width="wrap_content"
     android:layout_height="300dp"
+    android:layout_margin="8dp"
     android:orientation="horizontal">
 
-    <com.google.android.material.card.MaterialCardView
-
-        android:id="@+id/notice_item_cardView1"
-        style="@style/CardViewDizqusTileTheme"
+    <soup.neumorphism.NeumorphCardView
+        style="@style/NeumorphShapeAppearance"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="0dp">
 
-        <LinearLayout
+        android:layout_height="wrap_content">
 
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:layout_width="88dp"
-                    android:src="@drawable/sample_image"
-                    android:scaleType="centerCrop"
-                    android:layout_height="match_parent"/>
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/notice_rotate_cardView1"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="24sp"
-                    android:layout_marginHorizontal="24dp"
-                    app:cardBackgroundColor="@color/accent"
-                    app:cardCornerRadius="100dp">
+        <com.google.android.material.card.MaterialCardView
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-                        android:src="@drawable/profile_sample" />
-
-                </com.google.android.material.card.MaterialCardView>
-            </RelativeLayout>
-
+            android:id="@+id/dizqus_item_cardView1"
+            style="@style/CardViewCommonTheme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp">
 
             <LinearLayout
 
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginVertical="24dp"
-                android:layout_marginHorizontal="16dp">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_weight="1"
-                    style="@style/TEXTBODY16"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="What is a good soup to go with a grilled cheeze sandwich?" />
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_weight=".1"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:theme="@style/DizqusCommentText"
-                    app:boxStrokeWidth="2dp"
-                    app:boxStrokeColor="@color/accent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:textSize="12sp"
-                        android:hint="Join the discussion..."
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="88dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/sample_image" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/notice_rotate_cardView1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginTop="24sp"
+                        app:cardBackgroundColor="@color/accent"
+                        app:cardCornerRadius="100dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:src="@drawable/profile_sample" />
+
+                    </com.google.android.material.card.MaterialCardView>
+                </RelativeLayout>
+
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="24dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TEXTBODY16"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="What is a good soup to go with a grilled cheeze sandwich?" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".1"
+                        android:theme="@style/DizqusCommentText"
+                        app:boxStrokeColor="@color/accent"
+                        app:boxStrokeWidth="2dp">
 
-                <TextView
-                    android:layout_weight=".1"
-                    style="@style/TEXTBODY16"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="6 answers"
-                    android:textSize="12sp" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Join the discussion..."
+                            android:textSize="12sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        style="@style/TEXTBODY16"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".1"
+                        android:fontFamily="@font/poppins"
+                        android:text="6 answers"
+                        android:textSize="12sp" />
 
 
-                <TextView
-                    android:layout_weight=".1"
-                    style="@style/TEXTBODY16"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="Ujjwal Nahar"
-                    android:textSize="12sp" />
+                    <TextView
+                        style="@style/TEXTBODY16"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".1"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Ujjwal Nahar"
+                        android:textSize="12sp" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
+    </soup.neumorphism.NeumorphCardView>
 
 
 </LinearLayout>

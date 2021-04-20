@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color1">#FFBB86FC</color>
-    <color name="color2">#FF6200EE</color>
-    <color name="color3">#FF3700B3</color>
-    <color name="color4">#FF03DAC5</color>
-    <color name="color5">#FF018786</color>
+    <color name="color1">#482EA5</color>
+    <color name="color2">#63A333</color>
+    <color name="color3">#AE613E</color>
+    <color name="color4">#2160A3</color>
+    <color name="color5">#B1253A</color>
+    <color name="color6">#89A33E</color>
+    <color name="color7">#A84988</color>
+    <color name="color8">#36A193</color>
     <color name="grey">#777777</color>
     <color name="black50">#77000000</color>
     <color name="white50">#77ffffff</color>
@@ -12,14 +15,31 @@
     <color name="white90">#ccffffff</color>
     <color name="primarygrey">#1F1D24</color>
     <color name="primarygrey50">#771F1D24</color>
-    <color name="lightgrey">#F0F0F0</color>
+    <color name="lightgrey">#F8F8F8</color>
     <color name="lightPeach">#FFEBE5</color>
     <color name="darkPeach">#ff8b69</color>
     <color name="mediumgrey">#DADADA</color>
-    <color name="accent">#FF5700</color>
+    <color name="accent">#412CFF</color>
+    <color name="accent2">#FF5700</color>
     <color name="secondarygrey">#110F15</color>
+    <color name="ternarygrey">#060507</color>
     <color name="secondarygrey50">#77110F15</color>
     <color name="black">#FF000000</color>
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="shadowDarkLight">#24222B</color>
+    <color name="shadowDark">#121017</color>
+    <color name="shadowLightLight">#ffffff</color>
+    <color name="shadowLight">#E6E6E6</color>
+
+    <string-array name="colorList">
+        <item>@color/color1</item>
+        <item>@color/color2</item>
+        <item>@color/color3</item>
+        <item>@color/color4</item>
+        <item>@color/color5</item>
+        <item>@color/color6</item>
+        <item>@color/color7</item>
+        <item>@color/color8</item>
+    </string-array>
 </resources>

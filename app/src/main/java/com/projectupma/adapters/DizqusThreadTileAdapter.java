@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.projectupma.R;
 import com.projectupma.models.DizqusThreadModel;
+import com.projectupma.utils.AnimationClass;
 
 import java.util.List;
 
@@ -40,7 +41,6 @@ public class DizqusThreadTileAdapter extends RecyclerView.Adapter<DizqusThreadTi
     @Override
     public void onBindViewHolder(@NonNull DizqusThreadTileAdapter.ViewHolder holder, int position) {
         methods(holder, position);
-
     }
 
     private void methods(ViewHolder holder, int position) {
@@ -68,6 +68,7 @@ public class DizqusThreadTileAdapter extends RecyclerView.Adapter<DizqusThreadTi
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            AnimationClass.setAnimationTTB(itemView);
             initiator(itemView);
             methods();
         }

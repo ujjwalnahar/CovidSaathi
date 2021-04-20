@@ -1,9 +1,9 @@
-package com.projectupma.DataClasses;
+package com.projectupma.models;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class UserModel implements Serializable {
     String user_id;
     String name;
     String phone_no;
@@ -140,9 +140,9 @@ public class User {
     public void setApproved(String approved) {
         this.approved = approved;
     }
-    public User() {}
+    public UserModel() {}
 
-    public User(String user_id, String name, String phone_no, String roll_no, String semester, String branch, String college, String password, String photo_url, String reward_id, String idcard_url, String email, Date date_created, String auth, String approved) {
+    public UserModel(String user_id, String name, String phone_no, String roll_no, String semester, String branch, String college, String password, String photo_url, String reward_id, String idcard_url, String email, Date date_created, String auth, String approved) {
         this.user_id = user_id;
         this.name = name;
         this.phone_no = phone_no;
