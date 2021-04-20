@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginBottom="10dp"
+    tools:context=".activities.AddResourceActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_add_resources"
+        style="@style/toolbarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_new_24"
+        app:title="Contribute Resources"
+        android:fontFamily="@font/poppins"
+        app:titleMarginStart="10dp"
+        app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:textAppearance="@style/TEXTBODY16"
+            android:fontFamily="@font/poppins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:text="Resource Name"
+            android:textColor="@color/accent"
+             />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="0dp"
+            android:layout_weight="2"
+            app:strokeColor="@color/accent"
+            >
+
+            <EditText
+                android:id="@+id/edt_resource_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:layout_marginHorizontal="20dp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:textAppearance="@style/TEXTBODY16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:text="Branch"
+            android:textColor="@color/accent"
+             />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="0dp"
+            android:layout_weight="2"
+            app:strokeColor="@color/accent"
+            >
+
+           <Spinner
+               android:id="@+id/spinner_branch_add_resource"
+               android:layout_width="match_parent"
+               android:fontFamily="@font/poppins"
+               android:entries="@array/Branches"
+               android:spinnerMode="dropdown"
+               android:layout_height="50dp"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:textAppearance="@style/TEXTBODY16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:text="Semester"
+            android:textColor="@color/accent"
+          />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="0dp"
+            android:layout_weight="2"
+            app:strokeColor="@color/accent"
+            >
+
+
+            <Spinner
+                android:id="@+id/spinner_semester_add_resource"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/poppins"
+                android:entries="@array/semester"
+                android:layout_height="50dp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:textAppearance="@style/TEXTBODY16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:text="Subject"
+            android:textColor="@color/accent"
+            />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="0dp"
+            android:layout_weight="2"
+            app:strokeColor="@color/accent"
+            >
+
+
+            <Spinner
+                android:id="@+id/spinner_subject_add_resource"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/poppins"
+                android:layout_height="50dp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:textAppearance="@style/TEXTBODY16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:text="Type of Resource"
+            android:textColor="@color/accent"
+           />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="0dp"
+            android:layout_weight="2"
+            app:strokeColor="@color/accent"
+            >
+
+
+            <Spinner
+                android:id="@+id/spinner_type_add_resource"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/poppins"
+                android:entries="@array/types"
+                android:layout_height="50dp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TEXTBODY16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:text="Upload Resource"
+            android:textColor="@color/accent"
+           />
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mtrl_card_choose_file"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:layout_marginStart="35dp"
+            android:background="@color/accent"
+            android:drawableStart="@drawable/ic_baseline_picture_as_pdf_24"
+            android:drawablePadding="20dp"
+            android:tint="@color/white"
+            android:backgroundTint="@color/accent"
+            app:cornerRadius="20dp">
+            <TextView
+                android:layout_marginVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose File"
+                android:textSize="16sp"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins"
+                android:drawableStart="@drawable/ic_baseline_picture_as_pdf_24"
+                android:layout_gravity="center"/>
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_pdf_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginVertical="10dp"
+            android:text="No File Choosen yet"
+            android:fontFamily="@font/poppins"
+            android:textSize="18sp"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TEXTBODY16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="8dp"
+                android:layout_weight="1"
+                android:text=" Thumbnail Resource "
+                android:textColor="@color/accent"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mtrl_card_choose_image"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:layout_marginStart="35dp"
+                    android:background="@color/accent"
+                    android:drawableStart="@drawable/ic_baseline_picture_as_pdf_24"
+                    android:drawablePadding="20dp"
+                    android:tint="@color/white"
+                    android:backgroundTint="@color/accent"
+                    app:cornerRadius="20dp">
+                    <TextView
+                        android:layout_marginVertical="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Choose Image"
+                        android:textSize="16sp"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/ic_baseline_image_24"
+                        android:layout_gravity="center"/>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_thumbnail_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginVertical="10dp"
+                    android:text="No File Choosen yet"
+                    android:textSize="18sp"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mtrl_card_submit_resource"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/accent"
+            android:layout_gravity="center"
+            android:layout_marginVertical="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins"
+                android:layout_margin="10dp"
+                android:text="@string/submit_resource"
+                />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>

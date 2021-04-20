@@ -40,8 +40,13 @@ public class SplashActivity extends AppCompatActivity {
         startActivity(i);}
     }
     public void gotoLogin(View view) {
-        Intent i=new Intent(this,SignupActivity.class);
-        startActivity(i);
+        if(appHelper.checkUserLoggedIn(SplashActivity.this)){
+            Intent i=new Intent(this,HomeActivity.class);
+            startActivity(i);
+        }
+        else{
+            Intent i=new Intent(this,LoginActivity.class);
+            startActivity(i);}
     }
     private int STORAGE_PERMISSION_CODE=100;
     private int STORAGE_READ_PERMISSION_CODE=101;

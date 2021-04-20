@@ -122,10 +122,9 @@ android:src="@drawable/ic_baseline_search_24"
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_resources_subjects"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="10dp"/>
+        android:layout_marginHorizontal="0dp"/>
 </LinearLayout>

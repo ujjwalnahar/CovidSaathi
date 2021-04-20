@@ -7,12 +7,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,12 +20,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.projectupma.Db;
 import com.projectupma.R;
-import com.projectupma.activities.HomeActivity;
 import com.projectupma.adapters.HomePageImageSliderAdapter;
 import com.projectupma.adapters.JECNoticeAdapter;
 import com.projectupma.models.JECNoticeModel;
-import com.projectupma.models.SliderItem;
-import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
@@ -85,7 +80,7 @@ public class DashboardFragment extends Fragment {
 
     private void loadNotice() {
         List<JECNoticeModel> models = new ArrayList<>();
-        db.collection(Db.base+"/JEC_NOTICE")
+        db.collection(Db.BASE +"/JEC_NOTICE")
                 .orderBy("date", Query.Direction.DESCENDING)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

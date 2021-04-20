@@ -13,6 +13,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -36,14 +37,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
-import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.auth.FirebaseAuthCredentialsProvider;
-import com.google.firebase.installations.Utils;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -56,9 +53,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity {
     //global initializes
@@ -382,10 +377,8 @@ public class SignupActivity extends AppCompatActivity {
                             //if the upload is successfull
                             //hiding the progress dialog
                             progressDialog.dismiss();
-
                             //and displaying a success toast
                             Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl();
-
                             if(downloadUri.isSuccessful()){
                                  profilePhotoUrl = downloadUri.getResult().toString();
                                 System.out.println("## Stored path is "+profilePhotoUrl);
@@ -454,7 +447,11 @@ String branch=spinnerBranch.getSelectedItem().toString();
 
                 Date today=new Date();
                 User user1=new User(userId,name,phone,rollNo,sem,branch,college,edtPassword.getText().toString(),profilePhotoUrl,"","",email,today,"1","approved");
-                db.collection(Db.user).document(userId).set(user1);
+                db.collection(Db.USER).document(userId).set(user1);
+                SharedPreferences sharedPreferences=getSharedPreferences("userInfo",MODE_PRIVATE);
+                SharedPreferences.Editor edit = sharedPreferences.edit();
+                edit.putBoolean("isSignedIn",true);
+                edit.apply();
                 Intent intent=new Intent(SignupActivity.this,HomeActivity.class);
                 startActivity(intent);
     }});}

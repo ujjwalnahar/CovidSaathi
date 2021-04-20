@@ -26,5 +26,30 @@ public boolean checkUserLoggedIn(Context context){
         }
                 return false;
 }
+public String branchConverter(String branch){
+    String branchShort;
+    switch (branch){
+        case "Computer Science":branchShort="CS";break;
+        case "Information Technology":branchShort="IT";break;
+        case "Civil Engineering":branchShort="CE";break;
+        case "Industrial Production":branchShort="IP";break;
+        case "Mechanical Engineering":branchShort="ME";break;
+        case "Electrical Engineering":branchShort="EE";break;
+        case "Electronic and Telecommunication":branchShort="EC";break;
+        default:branchShort="CS";
+    }
+    return branchShort;
+}
+public String convertTypetoInt(String type){
+        Integer num;
+    switch (type){
+        case "Previous Year Papers":num=1;break;
+        case "Books":num=2;break;
+        case "Notes":num=3;break;
+        case "Lab Work":num=4;break;
+        case "Others":num=5;break;
+        default:num=2;}
+     return num.toString();
+}
 
 }

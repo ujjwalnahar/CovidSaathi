@@ -62,12 +62,10 @@ public class ProfileActivity extends AppCompatActivity {
         FirebaseUser user=mAuth.getCurrentUser();
         if (user != null) {
              uid = user.getUid();
-             txt_name.setText(uid);
-
              email=user.getEmail();
             txt_email.setText(email);
-             DocumentReference documentReference=db.collection(Db.user).document(uid);
-            db.collection(Db.user).whereEqualTo("user_id",uid).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+             DocumentReference documentReference=db.collection(Db.USER).document(uid);
+            db.collection(Db.USER).whereEqualTo("user_id",uid).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     if (task.isSuccessful()) {

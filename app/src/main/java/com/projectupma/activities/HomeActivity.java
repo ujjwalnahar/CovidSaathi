@@ -1,23 +1,21 @@
 package com.projectupma.activities;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.widget.NestedScrollView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.widget.NestedScrollView;
+import androidx.fragment.app.FragmentManager;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
@@ -29,8 +27,6 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.projectupma.Db;
 import com.projectupma.R;
 import com.projectupma.fragments.DashboardFragment;
-import com.projectupma.fragments.NoticeBoardFragment;
-import com.projectupma.fragments.ResourcesFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -85,7 +81,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void urgentMessageGetter() {
-        db.document(Db.base).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        db.document(Db.BASE).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 String color_string = (String) value.get("urgent_notice_color");
@@ -144,15 +140,16 @@ Intent intent=new Intent(HomeActivity.this,ProfileActivity.class);
         resources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmentManager.beginTransaction().replace(R.id.dashboard_frameLayout,new ResourcesFragment()).commit();
-
+                // fragmentManager.beginTransaction().replace(R.id.dashboard_frameLayout,new ResourcesFragment()).commit();
+                Intent intent = new Intent(HomeActivity.this, YourContributionActivity.class);
+                startActivity(intent);
             }
         });
 }
 
     private void homeBackgroundSetter() {
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            db.document(Db.base + "/STATIC_IMAGES/HOME_BACKGROUND")
+            db.document(Db.BASE + "/STATIC_IMAGES/HOME_BACKGROUND")
                     .addSnapshotListener(new EventListener<DocumentSnapshot>() {
                         @Override
                         public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -164,7 +161,7 @@ Intent intent=new Intent(HomeActivity.this,ProfileActivity.class);
                         }
                     });
         } else {
-            db.document(Db.base + "/STATIC_IMAGES/HOME_BACKGROUND")
+            db.document(Db.BASE + "/STATIC_IMAGES/HOME_BACKGROUND")
                     .addSnapshotListener(new EventListener<DocumentSnapshot>() {
                         @Override
                         public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -178,7 +175,27 @@ Intent intent=new Intent(HomeActivity.this,ProfileActivity.class);
         }
     }
 
+    boolean doubleBackToExitPressedOnce = false;
 
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            finish();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
+    }
     public void nightmode(View view) {
 
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
