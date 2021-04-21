@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            style="@style/CardViewNoticeTheme"
+            style="@style/CardViewBackground"
             app:cardCornerRadius="24dp"
             app:cardElevation="0dp">
 
@@ -90,7 +90,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="0.3"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                    android:src="@drawable/backward_arrow"
                 />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

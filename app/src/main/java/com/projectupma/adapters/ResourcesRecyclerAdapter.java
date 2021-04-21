@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.Timestamp;
-import com.projectupma.DataClasses.Resource;
 import com.projectupma.R;
 import com.projectupma.activities.HomeActivity;
+import com.projectupma.models.Resource;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -30,7 +30,7 @@ public class ResourcesRecyclerAdapter extends RecyclerView.Adapter<ResourcesRecy
     Context context;
     Map<String, String> contributionMap;
 
-    public ResourcesRecyclerAdapter(Context context, List<Resource> resourceList, HashMap<String, String> contributionMap) {
+    public ResourcesRecyclerAdapter(Context context, ArrayList<Resource> resourceList, HashMap<String, String> contributionMap) {
         this.context = context;
         this.resources = resourceList;
         this.contributionMap = contributionMap;

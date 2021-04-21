@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/transparent"
-        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_new_24"
+        app:navigationIcon="@drawable/backward_arrow"
         app:title="Contribute Resources"
         android:fontFamily="@font/poppins"
         app:titleMarginStart="10dp"
@@ -130,7 +130,7 @@
                 android:id="@+id/spinner_semester_add_resource"
                 android:layout_width="match_parent"
                 android:fontFamily="@font/poppins"
-                android:entries="@array/semester"
+                android:entries="@array/sem_list"
                 android:layout_height="50dp"/>
         </com.google.android.material.card.MaterialCardView>
 

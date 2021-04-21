@@ -27,9 +27,9 @@
         <activity android:name=".activities.AddResourceActivity" />
         <activity android:name=".activities.ResourcesElementActivity" />
         <activity
-            android:name=".activities.ProfileActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".activities.HomeActivity" />
+            android:name=".activities.ProfileActivity"/>
+        <activity android:name=".activities.HomeActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
         <activity android:name=".activities.ApprovalActivity" />
         <activity android:name=".activities.SignupActivity" />
         <activity android:name=".activities.LoginActivity" />

@@ -1,9 +1,18 @@
 package com.projectupma.activities;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
+import androidx.fragment.app.FragmentManager;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -18,8 +27,12 @@ import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.FragmentManager;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -27,6 +40,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.projectupma.Db;
 import com.projectupma.R;
 import com.projectupma.fragments.DashboardFragment;
+import com.projectupma.fragments.ResourcesFragment;
+import com.projectupma.models.UserModel;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -34,22 +49,22 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     //local initializes
+    Bundle savedInstanceState;
     public static FragmentManager fragmentManager;
     ImageView home_background_imageView;
-    FloatingActionButton dayNightFAB;
-    FloatingActionButton resources;
-    FloatingActionButton home_FAB;
+    FloatingActionButton dayNightFAB, home_FAB;
     FrameLayout dashboard_frameLayout;
     NestedScrollView nested_home_scrollView;
-    TextView urgent_message_text;
-    TextView urgent_message_title;
-    TextView txt_proifleName;
+    TextView urgent_message_title, urgent_message_text;
     MaterialCardView urgent_message_cardView;
+    NavigationView sideNavigationView_Home;
+    BottomAppBar bottomAppBar_Home;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.savedInstanceState = savedInstanceState;
         setContentView(R.layout.activity_home);
         initiators();
         methods(savedInstanceState);
@@ -59,26 +74,66 @@ public class HomeActivity extends AppCompatActivity {
         FirebaseFirestore.setLoggingEnabled(true);
         dayNightFAB = findViewById(R.id.dayNightFAB);
         home_FAB = findViewById(R.id.home_FAB);
-        txt_proifleName=findViewById(R.id.txt_profile_name);
         home_background_imageView = findViewById(R.id.home_background_imageView);
         dashboard_frameLayout = findViewById(R.id.dashboard_frameLayout);
+        bottomAppBar_Home = findViewById(R.id.bottomAppBar_Home);
         nested_home_scrollView = findViewById(R.id.nested_home_scrollView);
         urgent_message_text = findViewById(R.id.urgent_message_text);
+        sideNavigationView_Home = findViewById(R.id.sideNavigationView_Home);
         urgent_message_title = findViewById(R.id.urgent_message_title);
         urgent_message_cardView = findViewById(R.id.urgent_message_cardView);
         fragmentManager = getSupportFragmentManager();
-        resources=findViewById(R.id.btn_resources);
     }
 
     private void methods(Bundle savedInstanceState) {
-        homeBackgroundSetter();
+//        homeBackgroundSetter();
         setDashboardFragment(savedInstanceState);
         homeButtonClick(savedInstanceState);
         urgentMessageGetter();
-        profileButtonClickListner();
+        bottomAppBarFunctionality();
+        sideNavigationBarFunctionality();
 
 
     }
+
+    private void sideNavigationBarFunctionality() {
+        sideNavigationView_Home.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.profile_side_navigation_bar:
+                        break;
+                    case R.id.resources_side_navigation_bar:
+                        break;
+                    case R.id.societies_side_navigation_bar:
+                        break;
+                    case R.id.leaderboard_side_navigation_bar:
+                        break;
+                    case R.id.events_side_navigation_bar:
+                        break;
+                    case R.id.logout_side_navigation_bar:
+                        gotoLoginActivity();
+                        break;
+                }
+
+                return true;
+            }
+        });
+
+    }
+
+    private void bottomAppBarFunctionality() {
+        bottomAppBar_Home.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                }
+
+                return true;
+            }
+        });
+    }
+
 
     private void urgentMessageGetter() {
         db.document(Db.BASE).addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -115,7 +170,6 @@ public class HomeActivity extends AppCompatActivity {
                     fragmentManager.beginTransaction().replace(R.id.dashboard_frameLayout, new DashboardFragment()).commit();
 
 
-
                 }
                 nested_home_scrollView.fullScroll(ScrollView.FOCUS_UP);
             }
@@ -127,29 +181,10 @@ public class HomeActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.dashboard_frameLayout, new DashboardFragment()).commit();
 
     }
-    private void profileButtonClickListner(){
-        txt_proifleName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              //  Intent intent=new Intent(HomeActivity.this,ProfileActivity.class);
-                //startActivity(intent);
-Intent intent=new Intent(HomeActivity.this,ProfileActivity.class);
-            startActivity(intent);}
 
-    });
-        resources.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // fragmentManager.beginTransaction().replace(R.id.dashboard_frameLayout,new ResourcesFragment()).commit();
-                Intent intent = new Intent(HomeActivity.this, YourContributionActivity.class);
-                startActivity(intent);
-            }
-        });
-}
-
-    private void homeBackgroundSetter() {
+ private void homeBackgroundSetter() {
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            db.document(Db.BASE + "/STATIC_IMAGES/HOME_BACKGROUND")
+            db.document(Db.getStaticImages())
                     .addSnapshotListener(new EventListener<DocumentSnapshot>() {
                         @Override
                         public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -161,7 +196,7 @@ Intent intent=new Intent(HomeActivity.this,ProfileActivity.class);
                         }
                     });
         } else {
-            db.document(Db.BASE + "/STATIC_IMAGES/HOME_BACKGROUND")
+            db.document(Db.getStaticImages())
                     .addSnapshotListener(new EventListener<DocumentSnapshot>() {
                         @Override
                         public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -205,4 +240,11 @@ Intent intent=new Intent(HomeActivity.this,ProfileActivity.class);
         }
 
     }
+
+    public void gotoLoginActivity() {
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
+        finish();
+    }
+
 }

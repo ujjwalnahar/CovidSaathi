@@ -18,7 +18,7 @@
         android:background="@color/transparent"
         style="@style/toolbarStyle"
         app:titleMarginStart="10dp"
-        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_new_24"
+        app:navigationIcon="@drawable/backward_arrow"
         app:titleTextAppearance="@style/Toolbar.TitleText"
         />
     <LinearLayout

@@ -1,4 +1,4 @@
-package com.projectupma.DataClasses;
+package com.projectupma.models;
 
 import com.google.firebase.Timestamp;
 

@@ -1,4 +1,3 @@
-
 package com.projectupma.activities;
 
 import android.app.ProgressDialog;
@@ -32,10 +31,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.projectupma.DataClasses.Resource;
 import com.projectupma.Db;
 import com.projectupma.R;
 import com.projectupma.models.AppHelper;
+import com.projectupma.models.Resource;
 
 import java.io.File;
 import java.util.ArrayList;

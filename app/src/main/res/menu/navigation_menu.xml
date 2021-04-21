@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/profile_side_navigation_bar"
+        android:title="Profile"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/resources_side_navigation_bar"
+        android:title="Resources"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/societies_side_navigation_bar"
+        android:title="Societies"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/leaderboard_side_navigation_bar"
+        android:title="Leaderboard"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/events_side_navigation_bar"
+        android:title="Events"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/logout_side_navigation_bar"
+        android:title="Log out"
+        app:showAsAction="never" />
+</menu>

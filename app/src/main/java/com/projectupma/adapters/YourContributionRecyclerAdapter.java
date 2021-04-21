@@ -13,10 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.Timestamp;
-import com.projectupma.DataClasses.Resource;
-import com.projectupma.DataClasses.Subject;
 import com.projectupma.R;
 import com.projectupma.models.OnListItemClick;
+import com.projectupma.models.Resource;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -65,7 +64,7 @@ YourContributionViewHolder viewHolder=new YourContributionViewHolder(view);
         holder.imgBtnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onListItemClick.onClickEdit();
+
             }
         });
     }

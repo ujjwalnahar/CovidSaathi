@@ -3,45 +3,67 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:clipToPadding="false"
+    android:clipChildren="false"
     android:layout_height="match_parent"
     tools:context=".fragments.TopBarFragment">
+
+    <soup.neumorphism.NeumorphCardView
+        style="@style/NeumorphShapeAppearance"
+        app:neumorph_shadowElevation="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <LinearLayout
-
+            android:layout_gravity="center"
             android:layout_width="match_parent"
-            android:paddingHorizontal="32dp"
-            android:paddingVertical="16dp"
+            android:layout_height="wrap_content"
 
-            android:layout_height="wrap_content">
+            android:padding="16dp">
+
             <TextView
-                android:layout_width="0dp"
-                android:text="LOGO"
                 style="@style/TEXTBODY16"
-                android:gravity="center_vertical"
-                android:textSize="24sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:fontFamily="@font/poppins_bold"
-                android:textColor="@color/accent"
-                android:layout_weight="10"
-                android:layout_height="wrap_content"/>
+                android:gravity="center_vertical"
+                android:layout_gravity="center"
+                android:letterSpacing="0"
+                android:text="JEC GO"
+                android:paddingStart="12dp"
+                android:textSize="24sp" />
+
             <TextView
                 android:id="@+id/txt_profile_name"
-                android:layout_width="0dp"
-                android:text="Hello, Ujjwal"
-                android:layout_gravity="center"
                 style="@style/TEXTBODY16"
-                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:clickable="true"
                 android:fontFamily="@font/poppins_medium"
-                android:textAlignment="viewEnd"
-                android:layout_weight="10"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:layout_weight="3"
+                android:text="Hello, Ujjwal"
+                android:textAlignment="textEnd"
+                android:textSize="12sp"
+                tools:ignore="RtlCompat" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/notice_rotate_cardView1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_width="0dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/round_account_circle_icon"
-                android:layout_height="match_parent"
-                app:tint="@color/accent" />
+                android:layout_marginHorizontal="4dp"
+                app:cardBackgroundColor="@color/accent"
+                app:cardCornerRadius="100dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:src="@drawable/profile_sample" />
+
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
+    </soup.neumorphism.NeumorphCardView>
 
 </RelativeLayout>

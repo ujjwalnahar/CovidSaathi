@@ -19,18 +19,30 @@
     </style>
     <style name="DayNightFAB" parent="Widget.MaterialComponents.FloatingActionButton">
         <item name="android:src"  >@drawable/light_mode_icon</item>
-    </style>
-    <style name="CardViewNoticeTheme" parent="Widget.MaterialComponents.CardView">
-        <item name="strokeColor">@color/mediumgrey</item>
-        <item name="strokeWidth">1dp</item>
-        <item name="cardBackgroundColor">@color/white50</item>
+        <item name="tint"  >@color/accent</item>
+        <item name="android:backgroundTint">@color/white</item>
 
+    </style>
+    <style name="CardViewCommonTheme" parent="Widget.MaterialComponents.CardView">
+        <item name="strokeColor">@color/mediumgrey</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardBackgroundColor">@color/lightgrey</item>
+        <item name="cardElevation">0dp</item>
+
+    </style>
+
+    <style name="chipView"  >
+        <item name="android:textColor"  >@color/secondarygrey</item>
+        <item name="android:textSize"  >12dp</item>
+        <item name="chipBackgroundColor"  >@color/white50</item>
+        <item name="chipIconTint"  >@color/accent</item>
     </style>
 
 
     <style name="TEXTBODY16" parent="TextAppearance.AppCompat.Body1" >
         <item name="android:textColor"  >@color/secondarygrey</item>
-        <item name="android:textSize"  >16dp</item>
+        <item name="android:textSize"  >14dp</item>
         <item name="android:fontFamily"  >@font/poppins</item>
 
     </style>
@@ -47,8 +59,12 @@
         <item name="android:backgroundTint"  >@color/lightgrey</item>
 
     </style>
+    <style name="EditTextInputLayoutTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeWidthFocused"  >1dp</item>
+        <item name="boxStrokeWidth"  >1dp</item>
+        <item name="boxStrokeColor"  >@color/secondarygrey</item>
+    </style>
     <style name="Background50Pane" parent="Theme.MaterialComponents">
-        <item name="android:background"  >@color/white50</item>
         <item name="android:backgroundTint"  >@color/white50</item>
 
     </style>
@@ -75,14 +91,48 @@
     <style name="home_FAB" parent="Theme.MaterialComponents">
         <item name="android:background">@color/white</item>
         <item name="android:backgroundTint">@color/white</item>
+        <item name="tint"  >@color/accent</item>
+
     </style>
-    <style name="ShapeAppearance.App.CircleImageView" parent="">
+    <style name="DizqusCommentText">
+        <item name="boxCornerRadiusBottomEnd">5dp</item>
+        <item name="boxCornerRadiusBottomStart">5dp</item>
+        <item name="boxCornerRadiusTopEnd">5dp</item>
+        <item name="boxCornerRadiusTopStart">5dp</item>
+
+    </style>
+
+
+    <style name="circleBackground" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@drawable/circle</item>
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+    <style name="tintTheme" parent="">
+        <item name="tint">@color/secondarygrey</item>
     </style>
     <style name="CardViewBackground" parent="Theme.MaterialComponents" >
         <item name="android:background">@color/lightPeach</item>
         <item name="android:backgroundTint">@color/lightPeach</item>
+    </style>
+    <style name="NeumorphShapeAppearance">
+        <item name="neumorph_cornerFamily">rounded</item>
+        <item name="neumorph_cornerSize">32dp</item>
+
+
+        <item name="neumorph_cornerSizeTopLeft">12dp</item>
+        <item name="neumorph_cornerSizeTopRight">12dp</item>
+        <item name="neumorph_cornerSizeBottomLeft">12dp</item>
+        <item name="neumorph_cornerSizeBottomRight">12dp</item>
+        <item name="neumorph_backgroundColor">@color/lightgrey</item>
+        <item name="neumorph_inset">12dp</item>
+        <item name="neumorph_lightSource">leftTop</item>
+        <item name="neumorph_shadowColorDark">@color/shadowLight</item>
+        <item name="neumorph_shadowColorLight">@color/shadowLightLight</item>
+        <item name="neumorph_shadowElevation">4dp</item>
+        <item name="neumorph_shapeType">flat</item>
+        <item name="android:padding">8dp</item>
+
     </style>
 </resources>

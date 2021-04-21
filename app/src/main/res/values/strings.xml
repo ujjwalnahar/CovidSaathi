@@ -21,7 +21,16 @@
         <item>Notes</item>
         <item>Others</item>
     </string-array>
-    <string-array name="semester">
+    <string-array name="branch_list">
+        <item>CS</item>
+        <item>EC</item>
+        <item>EE</item>
+        <item>ME</item>
+        <item>CE</item>
+        <item>IT</item>
+        <item>IP</item>
+    </string-array>
+    <string-array name="sem_list">
         <item>1</item>
         <item>2</item>
         <item>3</item>
