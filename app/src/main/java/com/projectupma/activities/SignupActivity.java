@@ -13,6 +13,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -435,13 +436,11 @@ public class SignupActivity extends AppCompatActivity {
                             //if the upload is successfull
                             //hiding the progress dialog
                             progressDialog.dismiss();
-
                             //and displaying a success toast
                             Task<Uri> downloadUri = taskSnapshot.getStorage().getDownloadUrl();
-
-                            if (downloadUri.isSuccessful()) {
-                                profilePhotoUrl = downloadUri.getResult().toString();
-                                System.out.println("## Stored path is " + profilePhotoUrl);
+                            if(downloadUri.isSuccessful()){
+                                 profilePhotoUrl = downloadUri.getResult().toString();
+                                System.out.println("## Stored path is "+profilePhotoUrl);
                                 Toast.makeText(getApplicationContext(), "File Uploaded ", Toast.LENGTH_LONG).show();
 
                             }
@@ -474,9 +473,7 @@ public class SignupActivity extends AppCompatActivity {
             //you can display an error toast
         }
     }
-
-
-    public final static boolean isValidEmail(CharSequence target) {
+public final static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 

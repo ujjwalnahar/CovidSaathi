@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.card.MaterialCardView;
 import com.projectupma.models.SubjectModel;
 import com.projectupma.R;
+
+import com.projectupma.models.OnListItemClick;
 import com.projectupma.utils.AnimationClass;
 import com.projectupma.utils.RandomCatcherClass;
 
@@ -20,8 +22,9 @@ import java.util.List;
 
 public class SubjectsRecyclerAdatper extends RecyclerView.Adapter<SubjectsRecyclerAdatper.ViewHolder> {
     private Context context;
-    private List<SubjectModel> subjectList;
 
+    private List<SubjectModel> subjectList;
+private OnListItemClick onListItemClick;
     public SubjectsRecyclerAdatper(Context context, List<SubjectModel> subjectList) {
         this.context = context;
         this.subjectList = subjectList;
@@ -33,12 +36,13 @@ public class SubjectsRecyclerAdatper extends RecyclerView.Adapter<SubjectsRecycl
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.subjects_recycler_item_layout, parent, false);
         return new ViewHolder(view);
     }
-
+    public void setClickListener(OnListItemClick context) {
+        this.onListItemClick = context;
+    }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SubjectModel subject = subjectList.get(position);
         holder.methods(subject);
-
 
     }
 

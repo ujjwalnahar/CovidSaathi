@@ -43,7 +43,7 @@ public class SplashActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                     Db.userModel = task.getResult().toObject(UserModel.class);
-                    String s = Db.userModel.getApproved().toLowerCase();
+                    String s = Db.getUserModel().getApproved().toLowerCase();
                     if ("approved".equals(s)) {
                         gotoHomeActivity();
                     } else {

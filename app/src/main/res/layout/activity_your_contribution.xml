@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.YourContributionActivity">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_your_contribution"
+        style="@style/toolbarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:navigationIcon="@drawable/backward_arrow"
+        app:title="Your Contribution"
+        android:fontFamily="@font/poppins"
+        app:titleMarginStart="10dp"
+        app:titleTextAppearance="@style/Toolbar.TitleText" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_resources_your_contribution"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="0dp"/>
+</LinearLayout>

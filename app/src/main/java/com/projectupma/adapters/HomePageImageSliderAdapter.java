@@ -40,6 +40,7 @@ public class HomePageImageSliderAdapter extends
     private List<SliderItem> mSliderItems = new ArrayList<>();
 
     public HomePageImageSliderAdapter(Context context) {
+
         db.collection(Db.DASHBOARD_SLIDER)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
