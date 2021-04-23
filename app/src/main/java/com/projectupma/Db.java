@@ -12,6 +12,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.projectupma.models.UserModel;
 
 public class Db {
+    public final static  String CODE = "Code";
+    public final static String DATABASE ="test";
+    public final static String SLIDER = DATABASE +"/DASHBOARD/SLIDER";
+    public final static String USER = DATABASE +"/USERDOC/USER";
+    public final static String SEMESTER="semester";
+    public final static String USERID="userId";
+
+    public final static String SUBJECTCODE="subject_code";
+    public final static String RESOURCES= DATABASE +"/RESOURCES";
     public final static String DATABASE_NAME = "test";
     public final static String DASHBOARD_SLIDER = DATABASE_NAME + "/DASHBOARD/SLIDER";
     public final static String BASE = DATABASE_NAME + "/BASE";
@@ -30,7 +39,6 @@ public class Db {
     public final static String DATE_CREATED = "date_created";
     public final static String PHOTO_URL = "photo_url";
     public final static String ROLL_NO = "roll_no";
-    public final static String SEMESTER = "semester";
     public final static String USER_ID = "user_id";
     public final static String REWARD_ID = "reward_id";
     public final static String CS = "CS";
@@ -40,7 +48,6 @@ public class Db {
     public final static String ME = "ME";
     public final static String IP = "IP";
     public static UserModel userModel;
-
     public static String getUserDoc(String userID) {
         return USERDOC_USER + "/" + userID;
     }

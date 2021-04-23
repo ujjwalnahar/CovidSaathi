@@ -23,6 +23,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.projectupma.Db;
 import com.projectupma.R;
+
 import com.projectupma.adapters.DizqusThreadTileAdapter;
 import com.projectupma.adapters.HomePageImageSliderAdapter;
 import com.projectupma.adapters.JECNoticeAdapter;
@@ -117,7 +118,7 @@ public class DashboardFragment extends Fragment {
     }
 
     private void loadNotice() {
-        {
+{
             List<JECNoticeModel> models = new ArrayList<>();
             db.collection(Db.JEC_NOTICE)
                     .orderBy("date", Query.Direction.DESCENDING)

@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
 
@@ -23,13 +23,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectUpma">
+        <activity android:name=".activities.YourContributionActivity"></activity>
+        <activity android:name=".activities.AddResourceActivity" />
+        <activity android:name=".activities.ResourcesElementActivity" />
         <activity
             android:name=".activities.ProfileActivity"/>
         <activity android:name=".activities.HomeActivity"
             android:windowSoftInputMode="adjustPan|stateHidden"/>
         <activity android:name=".activities.ApprovalActivity" />
         <activity android:name=".activities.SignupActivity" />
-        <activity android:name=".activities.LoginActivity"></activity>
+        <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

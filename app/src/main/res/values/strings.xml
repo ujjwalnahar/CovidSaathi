@@ -5,6 +5,22 @@
     <string name="password">Password</string>
     <string name="sign_up">Sign Up</string>
     <string name="branch">Branch</string>
+    <string name="submit_resource">Submit Resource</string>
+    <string-array name="Branches">
+        <item>Computer Science</item>
+        <item>Information Technology</item>
+        <item>Electronics And Communication</item>
+        <item>Electrical Engineering</item>
+        <item>Mechanical Engineering</item>
+        <item>Civil Engineering</item>
+        <item>Industrial Production</item>
+    </string-array>
+    <string-array name="types">
+        <item>Previous Year Paper</item>
+        <item>Books</item>
+        <item>Notes</item>
+        <item>Others</item>
+    </string-array>
     <string-array name="branch_list">
         <item>CS</item>
         <item>EC</item>
@@ -24,5 +40,4 @@
         <item>7</item>
         <item>8</item>
     </string-array>
-
 </resources>
