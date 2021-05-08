@@ -14,7 +14,6 @@ import com.google.android.material.card.MaterialCardView;
 import com.projectupma.models.SubjectModel;
 import com.projectupma.R;
 
-import com.projectupma.models.OnListItemClick;
 import com.projectupma.utils.AnimationClass;
 import com.projectupma.utils.RandomCatcherClass;
 
@@ -24,7 +23,7 @@ public class SubjectsRecyclerAdatper extends RecyclerView.Adapter<SubjectsRecycl
     private Context context;
 
     private List<SubjectModel> subjectList;
-private OnListItemClick onListItemClick;
+
     public SubjectsRecyclerAdatper(Context context, List<SubjectModel> subjectList) {
         this.context = context;
         this.subjectList = subjectList;
@@ -36,9 +35,8 @@ private OnListItemClick onListItemClick;
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.subjects_recycler_item_layout, parent, false);
         return new ViewHolder(view);
     }
-    public void setClickListener(OnListItemClick context) {
-        this.onListItemClick = context;
-    }
+
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SubjectModel subject = subjectList.get(position);
@@ -62,6 +60,7 @@ private OnListItemClick onListItemClick;
             animation();
             changeRotatingColors();
         }
+
         public void changeRotatingColors() {
             TypedArray ta = RandomCatcherClass.getColorList(context);
             rotatingCardView_Subjects.setCardBackgroundColor(ta.getColor((int) (Math.random() * ta.length()), 0));

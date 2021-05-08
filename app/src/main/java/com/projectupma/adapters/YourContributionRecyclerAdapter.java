@@ -11,10 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.Timestamp;
 import com.projectupma.R;
-import com.projectupma.models.OnListItemClick;
 import com.projectupma.models.Resource;
 import com.squareup.picasso.Picasso;
 
@@ -25,16 +23,12 @@ import java.util.List;
 public class YourContributionRecyclerAdapter extends RecyclerView.Adapter<YourContributionRecyclerAdapter.YourContributionViewHolder> {
     private Context context;
     private List<Resource> resourceList;
-    private OnListItemClick onListItemClick;
 
 
     public YourContributionRecyclerAdapter(Context context, List<Resource> resourceList/* OnListItemClick onListItemClick*/) {
         this.context = context;
         this.resourceList = resourceList;
         //this.onListItemClick = onListItemClick;
-    }
-    public void setClickListener(OnListItemClick context) {
-        this.onListItemClick = context;
     }
 
     @NonNull

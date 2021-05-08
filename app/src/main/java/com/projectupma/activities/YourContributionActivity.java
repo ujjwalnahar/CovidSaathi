@@ -2,7 +2,6 @@ package com.projectupma.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,9 +17,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.projectupma.Db;
 import com.projectupma.R;
-import com.projectupma.adapters.ResourcesRecyclerAdapter;
 import com.projectupma.adapters.YourContributionRecyclerAdapter;
-import com.projectupma.models.AppHelper;
 import com.projectupma.models.Resource;
 
 import java.util.ArrayList;
@@ -28,7 +25,6 @@ import java.util.HashMap;
 
 public class YourContributionActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    AppHelper appHelper = AppHelper.getInstance();
     ArrayList<Resource> resourceArrayList=new ArrayList<>();
     HashMap<String,String> contributionMap=new HashMap<>();
     //ResourcesRecyclerAdapter resourcesRecyclerAdapter;

@@ -51,6 +51,7 @@ public class Db {
     public static String getUserDoc(String userID) {
         return USERDOC_USER + "/" + userID;
     }
+    public static FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public static String getTimeTableDoc(String branch, String sem) {
         return TIMETABLE + "/" + branch + "/" + sem;

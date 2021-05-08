@@ -28,7 +28,7 @@ public class AppHelper {
         }
                 return false;
 }
-public String branchConverter(String branch){
+public static String branchConverter(String branch){
     String branchShort;
     switch (branch){
         case "Computer Science":branchShort="CS";break;
@@ -42,7 +42,7 @@ public String branchConverter(String branch){
     }
     return branchShort;
 }
-public String convertTypetoInt(String type){
+public static String convertTypetoInt(String type){
         Integer num;
     switch (type){
         case "Previous Year Papers":num=1;break;

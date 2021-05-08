@@ -3,14 +3,12 @@ package com.projectupma.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,19 +20,15 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.projectupma.Db;
 import com.projectupma.R;
 import com.projectupma.adapters.ResourcesRecyclerAdapter;
-import com.projectupma.models.AppHelper;
 import com.projectupma.models.Resource;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class ResourcesElementActivity extends AppCompatActivity {
     private static final String TAG= "ResourceElementActivity";
     Spinner spinnerType;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    AppHelper appHelper = AppHelper.getInstance();
     ArrayList<Resource> resourceArrayList=new ArrayList<>();
     HashMap<String,String> contributionMap=new HashMap<>();
     ResourcesRecyclerAdapter resourcesRecyclerAdapter;

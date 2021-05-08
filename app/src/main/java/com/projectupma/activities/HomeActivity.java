@@ -43,6 +43,8 @@ import com.projectupma.fragments.DashboardFragment;
 import com.projectupma.fragments.ResourcesFragment;
 import com.projectupma.models.UserModel;
 
+import soup.neumorphism.NeumorphCardView;
+
 public class HomeActivity extends AppCompatActivity {
 
     //global initializes
@@ -55,8 +57,8 @@ public class HomeActivity extends AppCompatActivity {
     FloatingActionButton dayNightFAB, home_FAB;
     FrameLayout dashboard_frameLayout;
     NestedScrollView nested_home_scrollView;
-    TextView urgent_message_title, urgent_message_text;
     MaterialCardView urgent_message_cardView;
+    TextView urgent_message_title, urgent_message_text;
     NavigationView sideNavigationView_Home;
     BottomAppBar bottomAppBar_Home;
 
@@ -182,7 +184,7 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
- private void homeBackgroundSetter() {
+    private void homeBackgroundSetter() {
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
             db.document(Db.getStaticImages())
                     .addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -213,9 +215,9 @@ public class HomeActivity extends AppCompatActivity {
     boolean doubleBackToExitPressedOnce = false;
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed() {            super.onBackPressed();
+
         if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
             finish();
             return;
         }
@@ -231,6 +233,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         }, 2000);
     }
+
     public void nightmode(View view) {
 
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {

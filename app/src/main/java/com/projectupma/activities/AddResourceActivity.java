@@ -33,8 +33,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.projectupma.Db;
 import com.projectupma.R;
-import com.projectupma.models.AppHelper;
 import com.projectupma.models.Resource;
+import com.projectupma.utils.AppHelper;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -51,10 +51,9 @@ public class AddResourceActivity extends AppCompatActivity {
     MaterialCardView chooseResource, chooseThumbnail, submitResource;
     TextView txtPdfName, txtThumbnailName;
     Uri pdfUri = null, thumbnailImgUri = null;
-    String branch,  thumbnailDownloadUrl;
-    HashMap<String, String> hashMapSubjectCode=new HashMap<>();
+    String branch, thumbnailDownloadUrl;
+    HashMap<String, String> hashMapSubjectCode = new HashMap<>();
     String userId;
-    AppHelper appHelper = AppHelper.getInstance();
     private FirebaseStorage storageReference;
     String docId;
 
@@ -64,7 +63,7 @@ public class AddResourceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_resource);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        userId= mAuth.getUid();
+        userId = mAuth.getUid();
         methods();
 
     }
@@ -166,7 +165,7 @@ public class AddResourceActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // your code here
                 branch = spinnerBranch.getItemAtPosition(position).toString().trim();
-                String branchShort = appHelper.branchConverter(branch);
+                String branchShort = AppHelper.branchConverter(branch);
                 setSubjectAdapter(branchShort, spinnerSem.getSelectedItem().toString());
             }
 
@@ -181,7 +180,7 @@ public class AddResourceActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // your code here
-                setSubjectAdapter(appHelper.branchConverter(branch), spinnerSem.getSelectedItem().toString());
+                setSubjectAdapter(AppHelper.branchConverter(branch), spinnerSem.getSelectedItem().toString());
             }
 
             @Override
@@ -251,21 +250,21 @@ public class AddResourceActivity extends AppCompatActivity {
                             riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    Date today=new Date();
-                                    Timestamp timestamp=new Timestamp(today);
-                                    ArrayList<String> tags=new ArrayList<>();
-                                    Log.d("1122", "onSuccess: "+uri.toString());
-                                    Resource resource=new Resource(timestamp,hashMapSubjectCode.get(spinnerSubject.getSelectedItem().toString()),pdfSize.toString(),uri.toString(),spinnerSem.getSelectedItem().toString(),appHelper.convertTypetoInt(spinnerType.getSelectedItem().toString()),userId,tags,thumbnailDownloadUrl,resourceName.getText().toString());
-                                    db.collection(Db.RESOURCES+"/"+appHelper.branchConverter(spinnerBranch.getSelectedItem().toString())).add(resource).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    Date today = new Date();
+                                    Timestamp timestamp = new Timestamp(today);
+                                    ArrayList<String> tags = new ArrayList<>();
+                                    Log.d("1122", "onSuccess: " + uri.toString());
+                                    Resource resource = new Resource(timestamp, hashMapSubjectCode.get(spinnerSubject.getSelectedItem().toString()), pdfSize.toString(), uri.toString(), spinnerSem.getSelectedItem().toString(), AppHelper.convertTypetoInt(spinnerType.getSelectedItem().toString()), userId, tags, thumbnailDownloadUrl, resourceName.getText().toString());
+                                    db.collection(Db.RESOURCES + "/" + AppHelper.branchConverter(spinnerBranch.getSelectedItem().toString())).add(resource).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
                                         public void onSuccess(DocumentReference documentReference) {
-                                            docId=documentReference.getId();
+                                            docId = documentReference.getId();
                                         }
                                     });
                                     uploadThumbnail();
                                 }
                             });
-                            }
+                        }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -291,58 +290,60 @@ public class AddResourceActivity extends AppCompatActivity {
 
         }
     }
-    private void uploadThumbnail(){
+
+    private void uploadThumbnail() {
         final ProgressDialog progressDialog = new ProgressDialog(AddResourceActivity.this);
         progressDialog.setTitle("Uploading");
         progressDialog.show();
         final StorageReference riversRef2 = storageReference.getReference().child("thumbnails/" + txtThumbnailName.getText() + ".jpeg");
 
-            riversRef2.putFile(thumbnailImgUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            //if the upload is successfull
-                            //hiding the progress dialog
-                            progressDialog.dismiss();
-                            Log.d("1122", "onSuccess: "+docId);
+        riversRef2.putFile(thumbnailImgUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        //if the upload is successfull
+                        //hiding the progress dialog
+                        progressDialog.dismiss();
+                        Log.d("1122", "onSuccess: " + docId);
 
-                            riversRef2.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
+                        riversRef2.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
 
-                                    db.collection(Db.RESOURCES+"/"+appHelper.branchConverter(spinnerBranch.getSelectedItem().toString())).document(docId).update("thumbnailUrl",uri.toString());
-                                }
-                            });
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                            //if the upload is not successfull
-                            //hiding the progress dialog
-                            progressDialog.dismiss();
+                                db.collection(Db.RESOURCES + "/" + AppHelper.branchConverter(spinnerBranch.getSelectedItem().toString())).document(docId).update("thumbnailUrl", uri.toString());
+                            }
+                        });
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        //if the upload is not successfull
+                        //hiding the progress dialog
+                        progressDialog.dismiss();
 
-                            //and displaying error message
-                            Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            //calculating progress percentage
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                        //and displaying error message
+                        Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        //calculating progress percentage
+                        double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
 
-                            //displaying percentage in progress dialog
-                            progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
-                        }
-                    });
+                        //displaying percentage in progress dialog
+                        progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
+                    }
+                });
 
     }
-    private void uploadToDb(){
+
+    private void uploadToDb() {
         submitResource.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    uploadResource();
+                uploadResource();
 
             }
         });
