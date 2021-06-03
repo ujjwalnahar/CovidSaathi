@@ -1,7 +1,7 @@
 package com.projectupma.adapters;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.res.TypedArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,81 +11,90 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.Timestamp;
 import com.projectupma.R;
-import com.projectupma.activities.HomeActivity;
-import com.projectupma.models.Resource;
+import com.projectupma.models.ResourceModel;
+import com.projectupma.utils.RandomCatcherClass;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class ResourcesRecyclerAdapter extends RecyclerView.Adapter<ResourcesRecyclerAdapter.ResourcesRecyclerViewHolder> {
-    List<Resource> resources;
+public class ResourcesRecyclerAdapter extends RecyclerView.Adapter<ResourcesRecyclerAdapter.ViewHolder> {
+    List<ResourceModel> resourceModels;
     Context context;
-    Map<String, String> contributionMap;
 
-    public ResourcesRecyclerAdapter(Context context, ArrayList<Resource> resourceList, HashMap<String, String> contributionMap) {
+    public ResourcesRecyclerAdapter(Context context, ArrayList<ResourceModel> resourceModelList) {
         this.context = context;
-        this.resources = resourceList;
-        this.contributionMap = contributionMap;
+        this.resourceModels = resourceModelList;
     }
 
     @NonNull
     @Override
-    public ResourcesRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_resources, parent, false);
-        ResourcesRecyclerAdapter.ResourcesRecyclerViewHolder holder = new ResourcesRecyclerAdapter.ResourcesRecyclerViewHolder(view);
-        return new ResourcesRecyclerAdapter.ResourcesRecyclerViewHolder(view);
+        ViewHolder holder = new ViewHolder(view);
+        return new ViewHolder(view);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ResourcesRecyclerViewHolder holder, int position) {
-        Resource resource = resources.get(position);
-        holder.txtDocName.setText(resource.getDoc_name());
-        Timestamp stamp=resource.getDate();
-        java.util.Date date =new Date(stamp.getSeconds()*1000L);
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String strDate= formatter.format(date);
-        holder.txtDate.setText(strDate);
-        String name="Contributed By: " + contributionMap.get(resource.getUserId());
-        Log.d("000", "onBindViewHolder: called" + resource.getDoc_link()+contributionMap.get(resource.getUserId())+contributionMap.toString());
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.methods(position, resourceModels.get(position));
 
-        holder.txtContributedBy.setText(name);
-        Picasso.get()
-                .load(resource.getThumbnailUrl())
-                .placeholder(R.drawable.ic_baseline_person_24)
-                .error(R.drawable.ic_baseline_person_24)
-                .into(holder.imgResourceThumbnail);
 
     }
 
     @Override
     public int getItemCount() {
-        return resources.size();
+        return resourceModels.size();
     }
 
-    class ResourcesRecyclerViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView txtDocName, txtDate, txtContributedBy;
+        TextView txtDocName, txtDate, txt_doc_downloads;
         ImageView imgResourceThumbnail;
-        ImageView imgTypeIcon;
 
-        ResourcesRecyclerViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtDocName = itemView.findViewById(R.id.txt_doc_name);
+            txt_doc_downloads = itemView.findViewById(R.id.txt_doc_downloads);
             txtDate = itemView.findViewById(R.id.txt_resource_date);
-            txtContributedBy = itemView.findViewById(R.id.txt_resource_contributor_name);
             imgResourceThumbnail = itemView.findViewById(R.id.img_resource_thumbnail);
-            imgTypeIcon = itemView.findViewById(R.id.img_item_type_icon);
-
 
         }
+
+        private void methods(int pos, ResourceModel resourceModel) {
+            changeRotatingColors(pos);
+            setData(resourceModel);
+        }
+
+        private void setData(ResourceModel resourceModel) {
+            Timestamp stamp = resourceModel.getDate();
+            java.util.Date date = new Date(stamp.getSeconds() * 1000L);
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            String strDate = formatter.format(date);
+            txtDate.setText(strDate);
+            txtDocName.setText(resourceModel.getDoc_name());
+
+            int one;
+            if (Math.random() < 0.5)
+                one = 0;
+            else one = 1;
+
+            Picasso.get()
+                    .load(resourceModel.getThumbnailUrl()).rotate(180 * one)
+                    .into(imgResourceThumbnail);
+        }
+
+        public void changeRotatingColors(int pos) {
+            TypedArray ta = RandomCatcherClass.getColorList(context);
+            int color = ta.getColor(pos % ta.length(), 0);
+            txtDocName.setBackgroundColor(color);
+            txt_doc_downloads.setBackgroundColor(color);
+        }
+
     }
 }

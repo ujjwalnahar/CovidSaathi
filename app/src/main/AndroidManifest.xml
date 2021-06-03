@@ -23,23 +23,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectUpma">
-        <activity android:name=".activities.YourContributionActivity"></activity>
+        <activity android:name=".activities.PostThreadActivity"></activity>
+        <activity android:name=".activities.DizqusCommentActivity" />
+        <activity android:name=".activities.DizqusQuestionActivity" />
+        <activity android:name=".activities.DizqusThreadActivity" />
+        <activity android:name=".activities.YourContributionActivity" />
         <activity android:name=".activities.AddResourceActivity" />
         <activity android:name=".activities.ResourcesElementActivity" />
+        <activity android:name=".activities.ProfileActivity" />
         <activity
-            android:name=".activities.ProfileActivity"/>
-        <activity android:name=".activities.HomeActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"/>
+            android:name=".activities.HomeActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity android:name=".activities.ApprovalActivity" />
         <activity android:name=".activities.SignupActivity" />
-        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.LoginActivity"
+            android:noHistory="true"/>
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".services.FCMService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
         <meta-data
             android:name="preloaded_fonts"

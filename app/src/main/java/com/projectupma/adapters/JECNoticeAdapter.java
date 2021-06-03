@@ -41,7 +41,7 @@ public class JECNoticeAdapter extends RecyclerView.Adapter<JECNoticeAdapter.View
     @Override
     public JECNoticeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.jec_notice_recycler_item_layout, parent, false);
+                .inflate(R.layout.recycler_item_jec_notice, parent, false);
         return new ViewHolder(view);
     }
 

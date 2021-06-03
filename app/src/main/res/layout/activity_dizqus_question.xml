@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:transitionName="@string/transition_string"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.DizqusQuestionActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Question Description"
+        android:textAppearance="@style/TEXTBODY16"
+        android:textAlignment="center"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Answer"
+            android:textAppearance="@style/TEXTBODY16"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/answer_icon"
+            android:drawablePadding="20dp"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Report"
+            android:textAppearance="@style/TEXTBODY16"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_baseline_report_24"
+            android:drawablePadding="20dp"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0 Answers"
+        android:textAppearance="@style/TEXTBODY16"
+        android:layout_marginHorizontal="20dp"
+        android:textStyle="bold"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_disquz_answer_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="0dp"
+        />
+    <TextView
+        android:id="@+id/txt_not_available_discuz_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="No Contribution till Now"
+        android:textAppearance="@style/TEXTBODY16"
+        />
+
+</LinearLayout>

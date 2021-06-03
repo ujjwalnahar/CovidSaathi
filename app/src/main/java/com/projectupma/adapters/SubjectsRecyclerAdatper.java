@@ -1,46 +1,52 @@
 package com.projectupma.adapters;
 
-import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
-import com.projectupma.models.SubjectModel;
+import com.projectupma.Db;
 import com.projectupma.R;
-
+import com.projectupma.fragments.ResourceElementFragment;
+import com.projectupma.models.SubjectModel;
 import com.projectupma.utils.AnimationClass;
+import com.projectupma.utils.AppHelper;
 import com.projectupma.utils.RandomCatcherClass;
 
 import java.util.List;
 
 public class SubjectsRecyclerAdatper extends RecyclerView.Adapter<SubjectsRecyclerAdatper.ViewHolder> {
-    private Context context;
+    private FragmentActivity context;
 
     private List<SubjectModel> subjectList;
+    private String branch;
+    private String semester;
 
-    public SubjectsRecyclerAdatper(Context context, List<SubjectModel> subjectList) {
+    public SubjectsRecyclerAdatper(FragmentActivity context, List<SubjectModel> subjectList, String branch, String sem) {
         this.context = context;
         this.subjectList = subjectList;
+        this.branch = branch;
+        this.semester = sem;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.subjects_recycler_item_layout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_library, parent, false);
         return new ViewHolder(view);
     }
-
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SubjectModel subject = subjectList.get(position);
-        holder.methods(subject);
+        holder.methods(subject, position);
 
     }
 
@@ -73,7 +79,6 @@ public class SubjectsRecyclerAdatper extends RecyclerView.Adapter<SubjectsRecycl
         }
 
         private void initUI(View itemView) {
-
             txtSubject = itemView.findViewById(R.id.txt_subject_name);
             txtSubjectCode = itemView.findViewById(R.id.txt_subject_code);
             txtSubjectSymbol = itemView.findViewById(R.id.txt_symbol_subject);
@@ -86,10 +91,21 @@ public class SubjectsRecyclerAdatper extends RecyclerView.Adapter<SubjectsRecycl
             AnimationClass.setAnimationLTR(txtSubjectCode);
         }
 
-        private void methods(SubjectModel subject) {
+        private void methods(SubjectModel subject, int position) {
             txtSubject.setText(subject.getSubjectName());
             txtSubjectSymbol.setText(subject.getSubjectName().substring(0, 1));
             txtSubjectCode.setText(subject.getSubjectCode());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SubjectModel subject1 = subjectList.get(position);
+                    Bundle bundle = new Bundle();
+                    bundle.putString(Db.SUBJECT_CODE, subject1.getSubjectCode());
+                    bundle.putString(Db.CONST_BRANCH, branch);
+                    bundle.putString(Db.CONST_SEMESTER, semester);
+                    AppHelper.replaceFragments(ResourceElementFragment.class, context,bundle);
+                }
+            });
         }
     }
 }

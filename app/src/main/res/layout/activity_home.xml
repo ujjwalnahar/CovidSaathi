@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/LightPane"
+    android:id="@+id/home_DrawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -103,8 +104,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                app:elevation="0dp"
-                app:fabAlignmentMode="center"
+                app:elevation="128dp"
+                app:fabAlignmentMode="end"
                 app:fabCradleMargin="8dp"
                 app:fabCradleRoundedCornerRadius="64dp" />
 
@@ -122,32 +123,10 @@
                 app:pressedTranslationZ="16dp"
                 app:srcCompat="@drawable/home_icon" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/dayNightFAB"
-                style="@style/DayNightFAB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="4dp"
-                android:onClick="nightmode"
-                android:visibility="visible"
-                app:borderWidth="0dp"
-                app:fabSize="mini"
-                app:layout_anchor="@+id/nested_home_scrollView"
-                app:layout_anchorGravity="center" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </LinearLayout>
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/sideNavigationView_Home"
-        style="@style/Widget.MaterialComponents.NavigationView"
-        android:layout_gravity="end"
-        app:menu="@menu/navigation_menu"
-        android:layout_width="150dp"
-        android:layout_height="match_parent"/>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -23,7 +23,12 @@
         android:title="Events"
         app:showAsAction="never" />
     <item
+        android:id="@+id/dizqus_side_navigation_bar"
+        android:title="Dizqus"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/logout_side_navigation_bar"
         android:title="Log out"
         app:showAsAction="never" />
+
 </menu>

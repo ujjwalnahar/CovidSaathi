@@ -8,27 +8,41 @@
     <color name="color6">#89A33E</color>
     <color name="color7">#A84988</color>
     <color name="color8">#36A193</color>
-    <color name="grey">#777777</color>
+    <color name="color9">#6836A1</color>
+    <color name="color10">#2BBC65</color>
+    <color name="grey">#AAAFC3</color>
+    <color name="grey10">#22AAAFC3</color>
+    <color name="grey05">#11AAAFC3</color>
+    <color name="grey50">#77AAAFC3</color>
+    <color name="grey20">#22AAAFC3</color>
     <color name="black50">#77000000</color>
     <color name="white50">#77ffffff</color>
     <color name="black90">#cc000000</color>
     <color name="white90">#ccffffff</color>
+    <color name="white10">#11ffffff</color>
     <color name="primarygrey">#1F1D24</color>
     <color name="primarygrey50">#771F1D24</color>
-    <color name="lightgrey">#F8F8F8</color>
+    <color name="lightgrey">#F5F5F5</color>
     <color name="lightPeach">#FFEBE5</color>
     <color name="darkPeach">#ff8b69</color>
     <color name="mediumgrey">#DADADA</color>
-    <color name="accent">#412CFF</color>
+    <color name="accent">#FF7A36</color>
     <color name="accent2">#FF5700</color>
-    <color name="secondarygrey">#110F15</color>
+    <color name="orange">#FF5700</color>
+    <color name="green">#3FCC8A</color>
+    <color name="secondarygrey">#121115</color>
     <color name="ternarygrey">#060507</color>
     <color name="secondarygrey50">#77110F15</color>
     <color name="black">#FF000000</color>
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="shadowDarkLight">#24222B</color>
-    <color name="shadowDark">#121017</color>
+    <color name="yellow">#FFD059</color>
+    <color name="purple">#412CFF</color>
+    <color name="blue">#286CD3</color>
+    <color name="blueLight">#ECF0F4</color>
+    <color name="blueDark">#05FFFFFF</color>
+    <color name="shadowDarkLight">#25232C</color>
+    <color name="shadowDark">#191620</color>
     <color name="shadowLightLight">#ffffff</color>
     <color name="shadowLight">#E6E6E6</color>
 
@@ -41,5 +55,7 @@
         <item>@color/color6</item>
         <item>@color/color7</item>
         <item>@color/color8</item>
+        <item>@color/color9</item>
+        <item>@color/color10</item>
     </string-array>
 </resources>

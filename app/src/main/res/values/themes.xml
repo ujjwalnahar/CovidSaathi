@@ -14,86 +14,116 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/lightgrey</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowContentTransitions">true</item>
+
         <!-- Customize your theme here. -->
 
     </style>
+
     <style name="DayNightFAB" parent="Widget.MaterialComponents.FloatingActionButton">
-        <item name="android:src"  >@drawable/light_mode_icon</item>
-        <item name="tint"  >@color/accent</item>
+        <item name="android:src">@drawable/light_mode_icon</item>
+        <item name="tint">@color/accent</item>
         <item name="android:backgroundTint">@color/white</item>
 
     </style>
+
     <style name="CardViewCommonTheme" parent="Widget.MaterialComponents.CardView">
         <item name="strokeColor">@color/mediumgrey</item>
         <item name="strokeWidth">0dp</item>
         <item name="cardCornerRadius">16dp</item>
         <item name="cardBackgroundColor">@color/lightgrey</item>
         <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="chipView">
+        <item name="android:textColor">@color/secondarygrey</item>
+        <item name="android:textSize">12dp</item>
+        <item name="chipBackgroundColor">@color/white50</item>
+        <item name="chipIconTint">@color/accent</item>
+    </style>
+
+
+    <style name="TEXTBODY16" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/secondarygrey</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:backgroundTint">@color/white</item>
+
 
     </style>
 
-    <style name="chipView"  >
-        <item name="android:textColor"  >@color/secondarygrey</item>
-        <item name="android:textSize"  >12dp</item>
-        <item name="chipBackgroundColor"  >@color/white50</item>
-        <item name="chipIconTint"  >@color/accent</item>
-    </style>
-
-
-    <style name="TEXTBODY16" parent="TextAppearance.AppCompat.Body1" >
-        <item name="android:textColor"  >@color/secondarygrey</item>
-        <item name="android:textSize"  >14dp</item>
-        <item name="android:fontFamily"  >@font/poppins</item>
+    <style name="EDITTEXTBODY16" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/secondarygrey</item>
+        <item name="android:background">@color/grey10</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColorHint">@color/grey</item>
 
     </style>
+
+    <style name="ImageViewTint" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:tint">@color/secondarygrey</item>
+
+    </style>
+
     <style name="LightPane" parent="Theme.MaterialComponents">
-        <item name="android:background"  >@color/lightgrey</item>
-        <item name="android:backgroundTint"  >@color/lightgrey</item>
+        <item name="android:background">@color/lightgrey</item>
+        <item name="android:backgroundTint">@color/lightgrey</item>
     </style>
+
     <style name="DarkPane" parent="Theme.MaterialComponents">
-        <item name="android:background"  >@color/secondarygrey</item>
-        <item name="android:backgroundTint"  >@color/secondarygrey</item>
+        <item name="android:background">@color/secondarygrey</item>
+        <item name="android:backgroundTint">@color/secondarygrey</item>
     </style>
+
     <style name="BackgroundPane" parent="Theme.MaterialComponents">
-        <item name="android:background"  >@color/lightgrey</item>
-        <item name="android:backgroundTint"  >@color/lightgrey</item>
+        <item name="android:background">@color/lightgrey</item>
+        <item name="android:backgroundTint">@color/lightgrey</item>
 
     </style>
+
     <style name="EditTextInputLayoutTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeWidthFocused"  >1dp</item>
-        <item name="boxStrokeWidth"  >1dp</item>
-        <item name="boxStrokeColor"  >@color/secondarygrey</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeColor">@color/secondarygrey</item>
     </style>
+
     <style name="Background50Pane" parent="Theme.MaterialComponents">
-        <item name="android:backgroundTint"  >@color/white50</item>
+        <item name="android:backgroundTint">@color/white50</item>
 
     </style>
+
     <style name="Background90Pane" parent="Theme.MaterialComponents">
-        <item name="android:background"  >@color/white90</item>
-        <item name="android:backgroundTint"  >@color/white90</item>
+        <item name="android:background">@color/white90</item>
+        <item name="android:backgroundTint">@color/white90</item>
 
     </style>
+
     <style name="BWBackgroundPane" parent="Theme.MaterialComponents">
-        <item name="android:background"  >@color/white</item>
-        <item name="android:backgroundTint"  >@color/white</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:backgroundTint">@color/white</item>
 
     </style>
+
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">24sp</item>
         <item name="font">@font/poppins</item>
     </style>
-<style name="toolbarStyle" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
-    <item name="android:background">@color/white</item>
-    <item name="titleTextColor">@color/accent</item>
-    <item name="backgroundTint">@color/accent</item>
-    <item name="android:textSize">16dp</item>
-</style>
+
+    <style name="toolbarStyle" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="android:background">@color/white</item>
+        <item name="titleTextColor">@color/accent</item>
+        <item name="backgroundTint">@color/accent</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
     <style name="home_FAB" parent="Theme.MaterialComponents">
         <item name="android:background">@color/white</item>
         <item name="android:backgroundTint">@color/white</item>
-        <item name="tint"  >@color/accent</item>
+        <item name="tint">@color/accent</item>
 
     </style>
+
     <style name="DizqusCommentText">
         <item name="boxCornerRadiusBottomEnd">5dp</item>
         <item name="boxCornerRadiusBottomStart">5dp</item>
@@ -102,6 +132,9 @@
 
     </style>
 
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
 
     <style name="circleBackground" parent="">
         <item name="cornerFamily">rounded</item>
@@ -109,19 +142,23 @@
         <item name="android:background">@drawable/circle</item>
         <item name="android:backgroundTint">@color/white</item>
     </style>
+
     <style name="tintTheme" parent="">
         <item name="tint">@color/secondarygrey</item>
     </style>
-    <style name="CardViewBackground" parent="Theme.MaterialComponents" >
+
+    <style name="CardViewBackground" parent="Theme.MaterialComponents">
         <item name="android:background">@color/lightPeach</item>
         <item name="android:backgroundTint">@color/lightPeach</item>
     </style>
+
     <style name="NeumorphShapeAppearance">
         <item name="neumorph_cornerFamily">rounded</item>
         <item name="neumorph_cornerSize">32dp</item>
 
 
         <item name="neumorph_cornerSizeTopLeft">12dp</item>
+        <item name="android:clickable">true</item>
         <item name="neumorph_cornerSizeTopRight">12dp</item>
         <item name="neumorph_cornerSizeBottomLeft">12dp</item>
         <item name="neumorph_cornerSizeBottomRight">12dp</item>
@@ -130,9 +167,10 @@
         <item name="neumorph_lightSource">leftTop</item>
         <item name="neumorph_shadowColorDark">@color/shadowLight</item>
         <item name="neumorph_shadowColorLight">@color/shadowLightLight</item>
-        <item name="neumorph_shadowElevation">4dp</item>
+        <item name="neumorph_shadowElevation">8dp</item>
         <item name="neumorph_shapeType">flat</item>
         <item name="android:padding">8dp</item>
+        <item name="android:layout_margin">0dp</item>
 
     </style>
 </resources>

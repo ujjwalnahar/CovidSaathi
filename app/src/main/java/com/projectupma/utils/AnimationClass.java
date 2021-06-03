@@ -19,7 +19,7 @@ import com.projectupma.R;
 public class AnimationClass {
 
     final static int durationalpha=500;
-    final static int durationtransition=500;
+    final static int durationtransition=400;
     final static int durationscale=500;
 
     public static void setAnimationLTR(View view) {
@@ -55,7 +55,7 @@ public class AnimationClass {
         AnimationSet set = new AnimationSet(true);
         AlphaAnimation anim1 = new AlphaAnimation(0.0f, 1.0f);
 
-        TranslateAnimation anim2 = new TranslateAnimation(0, 0, 100, 0);
+        TranslateAnimation anim2 = new TranslateAnimation(0, 0, 200, 0);
         ScaleAnimation anim3 = new ScaleAnimation(1.0f, 1.0f, 1.0f, 1.0f, android.view.animation.Animation.RELATIVE_TO_SELF, 1.0f, android.view.animation.Animation.RELATIVE_TO_SELF, 0.5f);
         anim1.setDuration(durationalpha);
         anim2.setDuration(durationtransition);
@@ -82,7 +82,6 @@ public class AnimationClass {
     public static void setAnimationNeu(View view) {
         AnimationSet set = new AnimationSet(true);
         AlphaAnimation anim1 = new AlphaAnimation(0.0f, 1.0f);
-
         TranslateAnimation anim2 = new TranslateAnimation(0, 0, 10, 0);
         ScaleAnimation anim3 = new ScaleAnimation(1.05f, 1.0f, 1.05f, 1.0f, android.view.animation.Animation.RELATIVE_TO_SELF, 0.5f, android.view.animation.Animation.RELATIVE_TO_SELF, 0.5f);
         anim1.setDuration(durationalpha+500);

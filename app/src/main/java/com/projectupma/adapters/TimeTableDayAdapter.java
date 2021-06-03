@@ -33,17 +33,15 @@ public class TimeTableDayAdapter extends RecyclerView.Adapter<TimeTableDayAdapte
     }
 
     public Map<String, ArrayList<String>> sortbykey(Map<String, ArrayList<String>> day) {
-        // TreeMap to store values of HashMap
         TreeMap<String, ArrayList<String>> sorted = new TreeMap<>();
         sorted.putAll(day);
-
         return sorted;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.timetable_recycler_item_layout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_timetable, parent, false);
         return new ViewHolder(view);
     }
 

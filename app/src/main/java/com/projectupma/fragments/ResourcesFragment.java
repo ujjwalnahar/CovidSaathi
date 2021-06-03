@@ -1,6 +1,5 @@
 package com.projectupma.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,7 +22,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.projectupma.models.SubjectModel;
 import com.projectupma.Db;
 import com.projectupma.R;
-import com.projectupma.activities.ResourcesElementActivity;
 import com.projectupma.adapters.SubjectsRecyclerAdatper;
 import com.projectupma.utils.AppHelper;
 
@@ -38,7 +36,6 @@ public class ResourcesFragment extends Fragment {
     SubjectsRecyclerAdatper subjectsRecyclerAdatper;
     String branch;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,7 +47,6 @@ public class ResourcesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         initiator(view);
         methods();
-
     }
 
     private void initiator(View view) {
@@ -70,8 +66,8 @@ public class ResourcesFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // your code here
-                branch = spinnerBranch.getItemAtPosition(position).toString().trim();
-                String branchShort = AppHelper.branchConverter(branch);
+                branch = spinnerBranch.getSelectedItem().toString();
+                String branchShort = AppHelper.branchToShortConverter(branch);
 
                 setRecyclerAdapter(branchShort, spinnerSemester.getSelectedItem().toString());
             }
@@ -85,8 +81,11 @@ public class ResourcesFragment extends Fragment {
         spinnerSemester.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                branch = spinnerBranch.getSelectedItem().toString();
+                String branchShort = AppHelper.branchToShortConverter(branch);
 
-                setRecyclerAdapter(spinnerBranch.getSelectedItem().toString(), spinnerSemester.getSelectedItem().toString());
+                setRecyclerAdapter(branchShort, spinnerSemester.getSelectedItem().toString());
             }
 
             @Override
@@ -96,8 +95,7 @@ public class ResourcesFragment extends Fragment {
 
         });
     }
-
-    private void setRecyclerAdapter(String branch, String semester) {
+    private void setRecyclerAdapter(String branch,String semester){
         Log.d("02020", "1");
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerViewSubjects.setLayoutManager(mLayoutManager);
@@ -105,7 +103,7 @@ public class ResourcesFragment extends Fragment {
 
         Log.d("02020", "1");
 
-        db.collection(Db.SUBJECTS).whereEqualTo("branch", branch).whereEqualTo("semester", semester).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection(Db.SUBJECTS_COL).whereEqualTo("branch", branch).whereEqualTo("semester", semester).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
@@ -117,29 +115,19 @@ public class ResourcesFragment extends Fragment {
                                     ", Value = " + entry.getValue());
                             SubjectModel subject = new SubjectModel(entry.getValue(), entry.getKey());
                             subjectList.add(subject);
-                            subjectsRecyclerAdatper = new SubjectsRecyclerAdatper(getActivity(), subjectList);
+                            subjectsRecyclerAdatper = new SubjectsRecyclerAdatper(getActivity(), subjectList,branch,semester);
                             recyclerViewSubjects.setVisibility(View.VISIBLE);
                             recyclerViewSubjects.setAdapter(subjectsRecyclerAdatper);
                             Log.d("SomeTag", "1");
 
                         }
                     }
-                    subjectsRecyclerAdatper = new SubjectsRecyclerAdatper(getActivity(), subjectList);
-//                    onListItemClick = new OnListItemClick() {
-//                        @Override
-//                        public void onClick(View view, int position) {
-//                            SubjectModel subject1 = subjectList.get(position);
-//                            Intent intent = new Intent(getActivity(), ResourcesElementActivity.class);
-//                            intent.putExtra(Db.CODE, subject1.getSubjectCode());
-//                            intent.putExtra(Db.BRANCH, branch);
-//                            intent.putExtra(Db.SEMESTER, semester);
-//                            startActivity(intent);
-//                        }
-//                    };
+                    subjectsRecyclerAdatper = new SubjectsRecyclerAdatper(getActivity(), subjectList,branch,semester);
+
+                    //subjectsRecyclerAdatper.setClickListener(onListItemClick);
                     recyclerViewSubjects.setVisibility(View.VISIBLE);
                     recyclerViewSubjects.setAdapter(subjectsRecyclerAdatper);
                     Log.d("SomeTag", "1");
-
                 } else {
                     Log.d("02020", "Error getting documents: ", task.getException());
                 }

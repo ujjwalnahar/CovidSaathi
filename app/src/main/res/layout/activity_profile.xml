@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,282 +9,542 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
         android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/backward_arrow"
-            android:drawablePadding="16dp"
-            android:drawableTint="@color/grey"
-            android:fontFamily="@font/poppins_semibold"
-            android:padding="16dp"
-            android:text="Profile"
-            android:textColor="@color/grey"
-            android:textSize="16sp" />
+            android:clipChildren="false"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <RelativeLayout
-            android:id="@+id/layout_info_card_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialcard"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_centerHorizontal="true"
-                app:cardCornerRadius="100dp">
+            <soup.neumorphism.NeumorphCardView
+                style="@style/NeumorphShapeAppearance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onBackPressed_Profile">
 
                 <ImageView
-                    android:id="@+id/img_profile_photo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_baseline_person_24" />
-            </com.google.android.material.card.MaterialCardView>
+                    style="@style/ImageViewTint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:src="@drawable/backward_arrow" />
+            </soup.neumorphism.NeumorphCardView>
 
-
-            <com.google.android.material.card.MaterialCardView
-
-                android:id="@+id/casdfaswedsdxa_item_cardView1"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/CardViewCommonTheme"
-                android:layout_marginTop="48dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp">
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Profile"
+                android:textAppearance="@style/TEXTBODY16"
+                android:textSize="24sp" />
+
+            <soup.neumorphism.NeumorphCardView
+                style="@style/NeumorphShapeAppearance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="onLogoutClick">
 
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp">
 
                     <TextView
-                        android:id="@+id/txt_name_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="80dp"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="Ujjwal Nahar"
+                        android:padding="16dp"
+                        android:text="Log Out"
                         android:textAppearance="@style/TEXTBODY16"
-                        android:textSize="14dp" />
+                        android:textSize="12sp" />
 
-                    <TextView
-                        android:id="@+id/txt_rollNo_profile"
+                    <ImageView
+                        style="@style/ImageViewTint"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txt_name_profile"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="8dp"
-                        android:text="0201CS181087"
-                        android:textSize="16dp" />
-
-                    <View
-                        android:id="@+id/view_line"
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_below="@+id/txt_rollNo_profile"
-                        android:layout_marginHorizontal="32dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@color/accent" />
-
-                    <LinearLayout
-                        android:id="@+id/layout_info"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/view_line"
-                        android:layout_marginTop="8dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="@string/branch"
-                                android:textAppearance="@style/TEXTBODY16"
-                                android:textSize="12dp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/txt_branch"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="CSE" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Year"
-                                android:textAppearance="@style/TEXTBODY16"
-                                android:textSize="12dp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/txt_year"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="3rd"
-                                android:textAppearance="@style/TEXTBODY16"
-                                android:textSize="12dp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Semester"
-                                android:textAppearance="@style/TEXTBODY16"
-                                android:textSize="12dp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/txt_semester"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="5th" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/layout_dob"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_info"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="40dp"
-                            android:layout_weight="1"
-                            android:text="D.O.B"
-                            android:textAppearance="@style/TEXTBODY16"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/txt_dob"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginEnd="40dp"
-                            android:layout_weight="2"
-                            android:text="xx.xx.xxxx"
-                            android:textAlignment="center" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/layout_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_dob"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="40dp"
-                            android:layout_weight="1"
-                            android:text="Email"
-                            android:textAppearance="@style/TEXTBODY16"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/txt_email"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginEnd="40dp"
-                            android:layout_weight="2"
-                            android:text="ujjwal.nahar121@gmailc.om"
-                            android:textAlignment="center" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/layout_college"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/layout_email"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="40dp"
-                            android:layout_weight="1"
-                            android:text="College"
-                            android:textAppearance="@style/TEXTBODY16"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/txt_college"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginEnd="40dp"
-                            android:layout_weight="2"
-                            android:text="JEC Jabalpur"
-                            android:textAlignment="center" />
-                    </LinearLayout>
+                        android:layout_gravity="center"
+                        android:padding="8dp"
+                        android:src="@drawable/log_out_icon" />
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            </soup.neumorphism.NeumorphCardView>
+        </LinearLayout>
 
 
-        </RelativeLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+
+            <ImageView
+                android:id="@+id/img_backgroundProfile_photo"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="8dp"
+                android:clipToPadding="false"
+                android:padding="8dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="2dp"
+                    android:clickable="true"
+                    app:cardCornerRadius="100dp">
+
+                    <ImageView
+                        android:id="@+id/img_profile_photo"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/profile_light_icon" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <ImageView
+                    android:id="@+id/changeProfilePicButton_Profile_CardView"
+                    style="@style/circleBackground"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="bottom|end"
+                    android:cropToPadding="false"
+                    android:elevation="16dp"
+                    android:padding="4dp"
+                    android:src="@drawable/camera_icon" />
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/changeProfileBackgroundPicButton_Signup_CardView"
+                style="@style/circleBackground"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="24dp"
+                android:layout_gravity="bottom|end"
+                android:cropToPadding="false"
+                android:elevation="16dp"
+                android:padding="4dp"
+                android:src="@drawable/image_icon" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_name_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingHorizontal="24dp"
+                android:text="Loading Name..."
+                android:textAlignment="center"
+                android:textAppearance="@style/TEXTBODY16"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/txt_rollNo_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/fingerprint_icon"
+                android:drawablePadding="2dp"
+                android:drawableTint="@color/grey"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="24dp"
+                android:text="Loading Roll..."
+                android:textAppearance="@style/TEXTBODY16"
+                android:textSize="14dp" />
+
+            <soup.neumorphism.NeumorphCardView
+                style="@style/NeumorphShapeAppearance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:neumorph_shapeType="basin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+
+                    <soup.neumorphism.NeumorphCardView
+                        style="@style/NeumorphShapeAppearance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        app:neumorph_shapeType="flat">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/view_line"
+                            android:orientation="vertical"
+                            android:paddingVertical="16dp">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/view_line"
+                                android:orientation="horizontal">
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="@string/branch"
+                                        android:textAppearance="@style/TEXTBODY16"
+                                        android:textColor="@color/grey"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/txt_branch"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:text="Loading Branch..."
+                                        android:textAppearance="@style/TEXTBODY16" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="2dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginVertical="8dp"
+                                    android:background="@color/grey" />
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="Year"
+                                        android:textAppearance="@style/TEXTBODY16"
+                                        android:textColor="@color/grey"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/txt_year"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:text="0"
+                                        android:textAppearance="@style/TEXTBODY16" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="2dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginVertical="8dp"
+                                    android:background="@color/grey" />
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="Semester"
+                                        android:textAppearance="@style/TEXTBODY16"
+                                        android:textColor="@color/grey"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/txt_semester"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:text="0"
+                                        android:textAppearance="@style/TEXTBODY16" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/view_line"
+                                android:orientation="vertical">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginHorizontal="32dp"
+                                    android:layout_marginVertical="8dp"
+                                    android:background="@color/grey" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:paddingHorizontal="24dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="start"
+                                        android:text="• Email"
+                                        android:textAppearance="@style/TEXTBODY16"
+                                        android:textColor="@color/grey"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/txt_email"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="start"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:text="Loading Email..."
+                                        android:textAppearance="@style/TEXTBODY16" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:paddingHorizontal="24dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="start"
+                                        android:text="• College"
+                                        android:textAppearance="@style/TEXTBODY16"
+                                        android:textColor="@color/grey"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/txt_college"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="start"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:text="Loading College name..."
+                                        android:textAppearance="@style/TEXTBODY16" />
+                                </LinearLayout>
+
+
+                                <soup.neumorphism.NeumorphCardView
+                                    style="@style/NeumorphShapeAppearance"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:clipChildren="false"
+                                    android:clipToPadding="false"
+                                    android:padding="16dp"
+                                    app:neumorph_shapeType="pressed">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_weight="1"
+                                            android:padding="16dp"
+                                            android:text="Profile Qr"
+                                            android:textAppearance="@style/TEXTBODY16"
+                                            android:textColor="@color/grey"
+                                            android:textSize="14dp"
+                                            android:textStyle="bold" />
+
+                                        <soup.neumorphism.NeumorphCardView
+                                            style="@style/NeumorphShapeAppearance"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:clickable="true"
+                                            app:neumorph_shapeType="flat">
+
+                                            <ImageView
+                                                android:id="@+id/qr_profile_ImageView"
+                                                android:layout_width="100dp"
+                                                android:layout_height="100dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="centerCrop"
+                                                android:src="@drawable/profile_light_icon" />
+
+
+                                        </soup.neumorphism.NeumorphCardView>
+                                    </LinearLayout>
+
+
+                                </soup.neumorphism.NeumorphCardView>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:fontFamily="@font/poppins"
+                                    android:gravity="end"
+                                    android:paddingHorizontal="24dp"
+                                    android:text="Public (Visible To All)"
+                                    android:textAppearance="@style/TEXTBODY16"
+                                    android:textColor="@color/grey"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </soup.neumorphism.NeumorphCardView>
+
+                    <soup.neumorphism.NeumorphCardView
+                        style="@style/NeumorphShapeAppearance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        app:neumorph_shapeType="flat">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/view_line"
+                            android:orientation="vertical"
+                            android:paddingVertical="16dp">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/view_line"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:paddingHorizontal="24dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="start"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:text="• Phone No."
+                                        android:textAppearance="@style/TEXTBODY16"
+                                        android:textColor="@color/grey"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/txt_mobile"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="start"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:text="Loading No..."
+                                        android:textAppearance="@style/TEXTBODY16" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:paddingHorizontal="24dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="start"
+                                        android:fontFamily="@font/poppins_semibold"
+                                        android:text="• Id Card"
+                                        android:textAppearance="@style/TEXTBODY16"
+                                        android:textColor="@color/grey"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold" />
+
+                                    <ImageView
+                                        android:id="@+id/img_id_card"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="60dp" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:fontFamily="@font/poppins"
+                                    android:gravity="end"
+                                    android:paddingHorizontal="24dp"
+                                    android:text="Private (Visible To You)"
+                                    android:textAppearance="@style/TEXTBODY16"
+                                    android:textColor="@color/grey"
+                                    android:textSize="12dp"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </soup.neumorphism.NeumorphCardView>
+
+
+                </LinearLayout>
+
+            </soup.neumorphism.NeumorphCardView>
+
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/txt_your_contribution"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/layout_info_card_view"
-            android:layout_gravity="center"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="16dp"
-            android:layout_weight="1"
+            android:fontFamily="@font/poppins_semibold"
+            android:padding="16dp"
             android:text="Your Contributions"
-            android:textColor="@color/accent"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textAppearance="@style/TEXTBODY16" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview_your_contribution"
@@ -309,6 +568,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:layout_margin="10dp"
+                android:onClick="yourContributionViewMore"
                 android:text="View more>>"
                 android:textColor="@color/accent" />
 

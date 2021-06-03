@@ -1,9 +1,11 @@
 package com.projectupma.models;
 
-import java.io.Serializable;
-import java.util.Date;
+import com.google.firebase.Timestamp;
 
-public class UserModel implements Serializable {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class UserModel  {
     String user_id;
     String name;
     String phone_no;
@@ -11,15 +13,34 @@ public class UserModel implements Serializable {
     String semester;
     String branch;
     String college;
-    String password;
     String photo_url;
     String reward_id;
     String idcard_url;
     String email;
-    Date date_created;
+    Timestamp date_created;
     String auth;
     String approved;
 
+
+    public ArrayList<String> getFcmIDS() {
+        return fcmIDS;
+    }
+
+    public void setFcmIDS(ArrayList<String> fcmIDS) {
+        this.fcmIDS = fcmIDS;
+    }
+
+    ArrayList<String> fcmIDS;
+
+    int profile_background;
+
+    public int getProfile_background() {
+        return profile_background;
+    }
+
+    public void setProfile_background(int profile_background) {
+        this.profile_background = profile_background;
+    }
 
     public String getUser_id() {
         return user_id;
@@ -77,13 +98,6 @@ public class UserModel implements Serializable {
         this.college = college;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getPhoto_url() {
         return photo_url;
@@ -117,11 +131,11 @@ public class UserModel implements Serializable {
         this.email = email;
     }
 
-    public Date getDate_created() {
+    public Timestamp getDate_created() {
         return date_created;
     }
 
-    public void setDate_created(Date date_created) {
+    public void setDate_created(Timestamp date_created) {
         this.date_created = date_created;
     }
 
@@ -140,26 +154,14 @@ public class UserModel implements Serializable {
     public void setApproved(String approved) {
         this.approved = approved;
     }
-    public UserModel() {}
 
-    public UserModel(String user_id, String name, String phone_no, String roll_no, String semester, String branch, String college, String password, String photo_url, String reward_id, String idcard_url, String email, Date date_created, String auth, String approved) {
-        this.user_id = user_id;
-        this.name = name;
-        this.phone_no = phone_no;
-        this.roll_no = roll_no;
-        this.semester = semester;
-        this.branch = branch;
-        this.college = college;
-        this.password = password;
-        this.photo_url = photo_url;
-        this.reward_id = reward_id;
-        this.idcard_url = idcard_url;
-        this.email = email;
-        this.date_created = date_created;
-        this.auth = auth;
-        this.approved = approved;
+    public UserModel() {
+        profile_background = (int) (Math.random() * 15);
+        date_created = Timestamp.now();
+        approved="not_approved";
+        auth="0";
+        fcmIDS=new ArrayList<>();
     }
-
 
 
 }

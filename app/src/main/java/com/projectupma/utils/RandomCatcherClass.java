@@ -16,7 +16,6 @@ public class RandomCatcherClass {
     }
     public static String getRandomGreeting() {
         String line = "Greetings, Bonjour, What's up, Hi, Hey, Howdy-do, Howdy, Yo, Welcome, Good day, How are you, How u doin', Wassup, Yahallo";
-
         return line;
     }
 }

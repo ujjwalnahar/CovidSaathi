@@ -1,100 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="140dp"
-    android:layout_height="240dp"
-    app:cardCornerRadius="10dp"
-    style="@style/CardViewBackground">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/CardViewCommonTheme"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/img_resource_thumbnail"
-            android:layout_width="140dp"
-            android:layout_height="160dp"
-            android:padding="8dp"
-            android:layout_centerHorizontal="true"/>
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardview_item_resource"
+
+        <soup.neumorphism.NeumorphCardView
+            android:id="@+id/cardview_resource_main"
+            style="@style/NeumorphShapeAppearance"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_alignParentBottom="true"
-            android:backgroundTint="@color/darkPeach"
-            app:cardCornerRadius="10dp"
-            >
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/txt_doc_name"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/img_resource_thumbnail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Document Name"
-                android:textAlignment="center"
+                android:layout_margin="20dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter" />
 
-                android:singleLine="true"
-                style="@style/TEXTBODY16"
-                />
-                <LinearLayout
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="28dp"
+                android:background="@color/white"
+                android:clipToPadding="false"
+                android:elevation="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_doc_name"
+                    style="@style/TEXTBODY16"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/layout_item_resource"
-                    android:layout_below="@+id/txt_doc_name"
-                    android:orientation="horizontal">
-                <androidx.cardview.widget.CardView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    app:cardElevation="10dp"
-                    android:id="@+id/cardview_image_item_resource"
-                    app:cardCornerRadius="15dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_margin="10dp"
-                    >
-                <ImageView
-                    android:id="@+id/img_item_type_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:elevation="20dp"
-                    android:src="@drawable/processor"
-                    />
-                </androidx.cardview.widget.CardView>
-                <LinearLayout
-                    android:layout_width="match_parent"
+                    android:elevation="4dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:lineSpacingMultiplier=".7"
+                    android:padding="8dp"
+                    android:text="Loading Name..."
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:clipToPadding="false"
+                android:elevation="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_doc_downloads"
+                    style="@style/TEXTBODY16"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/txt_resource_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="27/02/2021"
-                        style="@style/TEXTBODY16"
-                        android:textSize="12sp"
-                        android:textAlignment="center"/>
-                    <TextView
-                        android:id="@+id/txt_resource_contributor_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Contributed By: Someone"
-                        android:lineSpacingExtra="-2dp"
-                        style="@style/TEXTBODY16"
-                        android:textSize="12sp"
-                        android:textAlignment="center"/>
+                    android:elevation="4dp"
+                    android:fontFamily="@font/poppins"
+                    android:lineSpacingMultiplier=".7"
+                    android:padding="8dp"
+                    android:text="0"
+                    android:textAllCaps="false"
+                    android:drawableEnd="@drawable/view_icon"
+                    android:drawablePadding="4dp"
+                    android:drawableTint="@color/white"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
 
 
-                </LinearLayout>
-                </LinearLayout>
+            </LinearLayout>
 
-            </RelativeLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
-    </RelativeLayout>
+        </soup.neumorphism.NeumorphCardView>
 
 
 
-</com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>        <TextView
+    android:id="@+id/txt_resource_date"
+    style="@style/TEXTBODY16"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:fontFamily="@font/poppins_semibold"
+    android:text="Loading Date..."
+    android:textAlignment="center"
+    android:layout_gravity="center"
+    android:textColor="@color/grey"
+    android:textSize="8sp" />
+
+</LinearLayout>

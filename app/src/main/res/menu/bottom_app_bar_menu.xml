@@ -2,10 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/resources"
-        android:icon="@drawable/round_menu_icon"
-        android:title="Resources"
-        android:iconTint="@color/white"
+        android:id="@+id/theme_menu"
+        android:icon="@drawable/day_night_icon"
+        android:title="Switch Theme"
         app:showAsAction="always" />
 
 

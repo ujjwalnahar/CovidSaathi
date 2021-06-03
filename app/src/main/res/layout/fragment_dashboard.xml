@@ -8,16 +8,16 @@
     tools:context=".fragments.DashboardFragment">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
 
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/dashboard_image_slider_view"
             android:layout_width="match_parent"
-            android:layoutAnimation="@anim/layout_animation"
             android:layout_height="250dp"
+            android:layoutAnimation="@anim/layout_animation"
             app:sliderAnimationDuration="1000"
             app:sliderAutoCycleDirection="right"
             app:sliderAutoCycleEnabled="true"
@@ -31,20 +31,61 @@
             android:padding="16dp">
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/timetable_chip_dashboard"
                 style="@style/chipView"
-                android:id="@+id/view_timetable_chip_dashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time Table CSE 6th Sem"
+                android:text="TimeTable"
                 app:chipIcon="@drawable/timetable_icon"
                 app:chipIconSize="16sp"
                 app:iconStartPadding="8sp" />
+
             <com.google.android.material.chip.Chip
+                android:id="@+id/library_chip_dashboard"
                 style="@style/chipView"
-                android:id="@+id/view_library_chip_dashboard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Library"
+                app:chipIcon="@drawable/library_icon"
+                app:chipIconSize="16sp"
+                app:iconStartPadding="8sp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/societies_chip_dashboard"
+                style="@style/chipView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Societies/Clubs"
+                app:chipIcon="@drawable/library_icon"
+                app:chipIconSize="16sp"
+                app:iconStartPadding="8sp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/dizqus_chip_dashboard"
+                style="@style/chipView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dizqus"
+                app:chipIcon="@drawable/library_icon"
+                app:chipIconSize="16sp"
+                app:iconStartPadding="8sp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/Events_chip_dashboard"
+                style="@style/chipView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Events"
+                app:chipIcon="@drawable/library_icon"
+                app:chipIconSize="16sp"
+                app:iconStartPadding="8sp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/leaderboard_chip_dashboard"
+                style="@style/chipView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Leaderboard"
                 app:chipIcon="@drawable/library_icon"
                 app:chipIconSize="16sp"
                 app:iconStartPadding="8sp" />
@@ -91,9 +132,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:letterSpacing="0"
-                android:textSize="12sp"
                 android:lines="2"
                 android:text="Important Notice"
+                android:textSize="12sp"
                 app:cornerRadius="0dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -103,9 +144,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:letterSpacing="0"
-                android:textSize="12sp"
                 android:lines="2"
                 android:text="Examination Notice"
+                android:textSize="12sp"
                 app:cornerRadius="0dp" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -113,7 +154,7 @@
             android:id="@+id/jec_notice_recyclerView_dashboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false"/>
+            android:nestedScrollingEnabled="false" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -156,9 +197,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:letterSpacing="0"
-                android:textSize="12sp"
                 android:lines="2"
                 android:text="Hot"
+                android:textSize="12sp"
                 app:cornerRadius="0dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -167,9 +208,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:letterSpacing="0"
-                android:textSize="12sp"
                 android:lines="2"
                 android:text="Latest"
+                android:textSize="12sp"
                 app:cornerRadius="0dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -178,9 +219,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:letterSpacing="0"
-                android:textSize="12sp"
                 android:lines="2"
                 android:text="Trending"
+                android:textSize="12sp"
                 app:cornerRadius="0dp" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
 

@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -28,8 +27,6 @@ import java.util.List;
 public class NoticeBoardFragment extends Fragment {
 
     //global initializes
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     RecyclerView jec_notice_recyclerView;
 
     @Override
@@ -48,7 +45,28 @@ public class NoticeBoardFragment extends Fragment {
 
     private void loadNotice() {
         List<JECNoticeModel> models = new ArrayList<>();
-        db.collection(Db.BASE +"/JEC_NOTICE")
+        Db.db.collection(Db.JEC_NOTICE_COL)
+                .orderBy("date", Query.Direction.DESCENDING)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for (QueryDocumentSnapshot snapshot: task.getResult())
+                            {
+                                JECNoticeModel model=snapshot.toObject(JECNoticeModel.class);
+                                models.add(model);
+                            }
+                            jec_notice_recyclerView.setAdapter(new JECNoticeAdapter(models,getActivity(),models.size()));
+                        }
+                    }
+                });
+        jec_notice_recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+    }
+    private void loadExamNotice() {
+        List<JECNoticeModel> models = new ArrayList<>();
+        Db.db.collection(Db.JEC_EXAM_NOTICE_COL)
                 .orderBy("date", Query.Direction.DESCENDING)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

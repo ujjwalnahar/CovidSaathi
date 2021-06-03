@@ -2,21 +2,36 @@ package com.projectupma.models;
 
 import com.google.firebase.Timestamp;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class DizqusThreadModel {
-    Timestamp time;
-    String text;
+public class DizqusThreadModel  {
+    Timestamp date;
+    String description;
     String question;
-    String tag;
     String user_id;
+    String imageUrl;
     boolean reply;
     int flag;
-    int likes;
+    ArrayList<String> likes;
     List<String> children;
     List<String> tags;
+    List<String> inappropriate;
+    String type;
+
+    public DizqusThreadModel() {
+        likes = new ArrayList<>();
+        inappropriate = new ArrayList<>();
+    }
+
+    public List<String> getInappropriate() {
+        return inappropriate;
+    }
+
+    public void setInappropriate(List<String> inappropriate) {
+        this.inappropriate = inappropriate;
+    }
 
     public String getQuestion() {
         return question;
@@ -26,45 +41,20 @@ public class DizqusThreadModel {
         this.question = question;
     }
 
-    public DizqusThreadModel() {
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-
-    public DizqusThreadModel(Timestamp time, String text, String tag, String user_id, String question, boolean reply, int flag, int likes, List<String> children, List<String> tags) {
-        this.time = time;
-        this.text = text;
-        this.question = question;
-        this.tag = tag;
-        this.user_id = user_id;
-        this.reply = reply;
-        this.flag = flag;
-        this.likes = likes;
-        this.children = children;
-        this.tags = tags;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public Timestamp getTime() {
-        return time;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTime(Timestamp time) {
-        this.time = time;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getUser_id() {
@@ -91,11 +81,11 @@ public class DizqusThreadModel {
         this.flag = flag;
     }
 
-    public int getLikes() {
+    public ArrayList<String> getLikes() {
         return likes;
     }
 
-    public void setLikes(int likes) {
+    public void setLikes(ArrayList<String> likes) {
         this.likes = likes;
     }
 
@@ -106,6 +96,7 @@ public class DizqusThreadModel {
     public void setChildren(List<String> children) {
         this.children = children;
     }
+
     public List<String> getTags() {
         return tags;
     }
@@ -114,12 +105,19 @@ public class DizqusThreadModel {
         this.tags = tags;
     }
 
-    public String getDate() {
-        Date formatedDate = time.toDate();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy ");
-        String S = sdf.format(formatedDate);
-        return S.toString();
+    public String getType() {
+        return type;
+    }
 
+    public void setType(String type) {
+        this.type = type;
+    }
 
+    public Timestamp getDate() {
+        return date;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
     }
 }

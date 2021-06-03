@@ -1,38 +1,29 @@
 package com.projectupma.activities;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.widget.NestedScrollView;
-import androidx.fragment.app.FragmentManager;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.widget.NestedScrollView;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -40,28 +31,27 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.projectupma.Db;
 import com.projectupma.R;
 import com.projectupma.fragments.DashboardFragment;
-import com.projectupma.fragments.ResourcesFragment;
-import com.projectupma.models.UserModel;
-
-import soup.neumorphism.NeumorphCardView;
+import com.projectupma.utils.AppHelper;
 
 public class HomeActivity extends AppCompatActivity {
 
+    public static FragmentManager fragmentManager;
+    //AppHelper appHelper = AppHelper.getInstance();
     //global initializes
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     //local initializes
     Bundle savedInstanceState;
-    public static FragmentManager fragmentManager;
     ImageView home_background_imageView;
-    FloatingActionButton dayNightFAB, home_FAB;
+    FloatingActionButton home_FAB;
     FrameLayout dashboard_frameLayout;
     NestedScrollView nested_home_scrollView;
     MaterialCardView urgent_message_cardView;
     TextView urgent_message_title, urgent_message_text;
-    NavigationView sideNavigationView_Home;
     BottomAppBar bottomAppBar_Home;
-
+    DrawerLayout home_DrawerLayout;
+    Menu menu;
+    boolean doubleBackToExitPressedOnce = false;
+    private String currentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,16 +64,15 @@ public class HomeActivity extends AppCompatActivity {
 
     private void initiators() {
         FirebaseFirestore.setLoggingEnabled(true);
-        dayNightFAB = findViewById(R.id.dayNightFAB);
         home_FAB = findViewById(R.id.home_FAB);
         home_background_imageView = findViewById(R.id.home_background_imageView);
         dashboard_frameLayout = findViewById(R.id.dashboard_frameLayout);
         bottomAppBar_Home = findViewById(R.id.bottomAppBar_Home);
         nested_home_scrollView = findViewById(R.id.nested_home_scrollView);
         urgent_message_text = findViewById(R.id.urgent_message_text);
-        sideNavigationView_Home = findViewById(R.id.sideNavigationView_Home);
         urgent_message_title = findViewById(R.id.urgent_message_title);
         urgent_message_cardView = findViewById(R.id.urgent_message_cardView);
+        home_DrawerLayout = findViewById(R.id.home_DrawerLayout);
         fragmentManager = getSupportFragmentManager();
     }
 
@@ -93,34 +82,7 @@ public class HomeActivity extends AppCompatActivity {
         homeButtonClick(savedInstanceState);
         urgentMessageGetter();
         bottomAppBarFunctionality();
-        sideNavigationBarFunctionality();
 
-
-    }
-
-    private void sideNavigationBarFunctionality() {
-        sideNavigationView_Home.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.profile_side_navigation_bar:
-                        break;
-                    case R.id.resources_side_navigation_bar:
-                        break;
-                    case R.id.societies_side_navigation_bar:
-                        break;
-                    case R.id.leaderboard_side_navigation_bar:
-                        break;
-                    case R.id.events_side_navigation_bar:
-                        break;
-                    case R.id.logout_side_navigation_bar:
-                        gotoLoginActivity();
-                        break;
-                }
-
-                return true;
-            }
-        });
 
     }
 
@@ -129,16 +91,19 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
+                    case R.id.theme_menu: {
+                        switchThemes();
+                        break;
+                    }
                 }
-
                 return true;
             }
         });
+
     }
 
-
     private void urgentMessageGetter() {
-        db.document(Db.BASE).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        db.document(Db.BASE_DOC).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 String color_string = (String) value.get("urgent_notice_color");
@@ -169,7 +134,8 @@ public class HomeActivity extends AppCompatActivity {
                     for (int i = 0; i < count; i++) {
                         fragmentManager.popBackStack();
                     }
-                    fragmentManager.beginTransaction().replace(R.id.dashboard_frameLayout, new DashboardFragment()).commit();
+                    replaceFragments(DashboardFragment.class);
+
 
 
                 }
@@ -180,7 +146,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setDashboardFragment(Bundle savedInstanceState) {
         if (savedInstanceState != null) return;
-        fragmentManager.beginTransaction().replace(R.id.dashboard_frameLayout, new DashboardFragment()).commit();
+        replaceFragments(DashboardFragment.class);
 
     }
 
@@ -212,31 +178,14 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    boolean doubleBackToExitPressedOnce = false;
-
     @Override
-    public void onBackPressed() {            super.onBackPressed();
-
-        if (doubleBackToExitPressedOnce) {
-            finish();
-            return;
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce = false;
-            }
-        }, 2000);
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
-    public void nightmode(View view) {
+    public void switchThemes() {
 
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+        if (AppHelper.isNightMode()) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -244,10 +193,26 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+
     public void gotoLoginActivity() {
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
         finish();
+    }
+
+    public void replaceFragments(Class fragmentClass) {
+        Fragment fragment = null;
+        currentFragment = fragmentClass.getSimpleName();
+
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // Insert the fragment by replacing any existing fragment
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.dashboard_frameLayout, fragment)
+                .commit();
     }
 
 }

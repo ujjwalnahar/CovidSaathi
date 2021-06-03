@@ -1,10 +1,5 @@
 package com.projectupma.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,16 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.projectupma.Db;
 import com.projectupma.R;
 import com.projectupma.models.UserModel;
-import com.projectupma.utils.AppHelper;
+
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class SplashActivity extends AppCompatActivity {
 //    AppHelper appHelper = AppHelper.getInstance();
@@ -31,26 +32,55 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        if (ContextCompat.checkSelfPermission(SplashActivity.this, Manifest.permission_group.STORAGE) == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(SplashActivity.this, new String[]{Manifest.permission_group.STORAGE}, 1);
-        }
+        methods();
+
+    }
+
+    private void methods() {
+        requestPermissions();
+        checkUserStatus();
+        getStaticData();
+    }
+
+    private void getStaticData() {
+        Db.db.document(Db.BACKGROUND_PROFILE_IMAGES_DOC).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                Db.PROFILE_BACKGROUND_URLS = (ArrayList<String>) task.getResult().get("urls");
+            }
+        });
+    }
+
+    private void checkUserStatus() {
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             gotoLoginActivity();
         } else {
             FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            db.document(Db.getUserDoc(firebaseUser.getUid())).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            Db.db.document(Db.getUserDoc(firebaseUser.getUid())).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    Db.userModel = task.getResult().toObject(UserModel.class);
-                    String s = Db.getUserModel().getApproved().toLowerCase();
-                    if ("approved".equals(s)) {
-                        gotoHomeActivity();
-                    } else {
-                        gotoApprovalActivity();
+                    try {
+                        Db.userModel = Objects.requireNonNull(task.getResult()).toObject(UserModel.class);
+                        String s = Db.getUserModel().getApproved().toLowerCase();
+                        if ("approved".equals(s)) {
+                            gotoHomeActivity();
+                        } else {
+                            gotoApprovalActivity();
+                        }
+                    }
+                    catch (Exception e){
+                        FirebaseAuth.getInstance().signOut();
+                        gotoLoginActivity();
+
                     }
                 }
             });
+        }
+    }
+
+    private void requestPermissions() {
+        if (ContextCompat.checkSelfPermission(SplashActivity.this, Manifest.permission_group.STORAGE) == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(SplashActivity.this, new String[]{Manifest.permission_group.STORAGE}, 1);
         }
     }
 

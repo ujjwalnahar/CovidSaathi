@@ -5,11 +5,6 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.ScaleAnimation;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -76,7 +71,7 @@ public class HomePageImageSliderAdapter extends
 
     @Override
     public SliderAdapterVH onCreateViewHolder(ViewGroup parent) {
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_page_image_slider_layout, null);
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.slider_item_home, null);
         return new SliderAdapterVH(inflate);
     }
 

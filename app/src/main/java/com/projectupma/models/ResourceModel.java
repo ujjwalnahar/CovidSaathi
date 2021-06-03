@@ -5,7 +5,7 @@ import com.google.firebase.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Resource {
+public class ResourceModel {
     Timestamp date;
     String subject_code;
     String size;
@@ -16,8 +16,10 @@ public class Resource {
     String doc_name;
     List<String> tags;
     String thumbnailUrl;
+    String branch;
+    int downloads;
 
-    public Resource(Timestamp date, String subject_code, String size, String doc_link, String semester, String type, String userId, ArrayList<String> tags, String thumbnailUrl,String doc_name) {
+    public ResourceModel(Timestamp date, String subject_code, String size, String doc_link, String semester, String type, String userId, String doc_name, List<String> tags, String thumbnailUrl, String branch) {
         this.date = date;
         this.subject_code = subject_code;
         this.size = size;
@@ -25,13 +27,30 @@ public class Resource {
         this.semester = semester;
         this.type = type;
         this.userId = userId;
+        this.doc_name = doc_name;
         this.tags = tags;
         this.thumbnailUrl = thumbnailUrl;
-        this.doc_name=doc_name;
+        this.branch = branch;
     }
 
-    public Resource() {
+    public String getBranch() {
+        return branch;
+    }
 
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    public ResourceModel() {
+        this.downloads=0;
+    }
+
+    public int getDownloads() {
+        return downloads;
+    }
+
+    public void setDownloads(int downloads) {
+        this.downloads = downloads;
     }
 
     public String getDoc_name() {

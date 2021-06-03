@@ -12,18 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.projectupma.Db;
 import com.projectupma.R;
 import com.projectupma.models.TimeTableModel;
 import com.projectupma.models.UserModel;
-
-import java.util.Map;
 
 public class TimeTablePagerAdapter extends PagerAdapter {
     //global initializes
@@ -63,7 +56,7 @@ public class TimeTablePagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View itemView = (ViewGroup) inflater.inflate(R.layout.timetable_pager_layout, container, false);
+        View itemView = (ViewGroup) inflater.inflate(R.layout.pager_item_timetable, container, false);
         recyclerView = itemView.findViewById(R.id.timetable_RecyclerView);
         container.addView(itemView);
         methods(position);

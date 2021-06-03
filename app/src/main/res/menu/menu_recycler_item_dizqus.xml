@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_menu_answer_like"
+        android:icon="@drawable/ic_like"
+        android:title="Like"/>
+
+    <item
+        android:id="@+id/bottom_menu_dizqus_dislike"
+        android:icon="@drawable/ic_dislike_thumb"
+        android:title="Dislike"/>
+
+    <item
+        android:id="@+id/bottom_menu_dizqus_comment"
+        android:icon="@drawable/comment_icon"
+        android:title="Comment"/>
+</menu>
