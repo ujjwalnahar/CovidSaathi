@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:strokeWidth="2dp"
+    app:strokeColor="@color/accent"
+    app:cardCornerRadius="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/centerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Center Name"
+        android:layout_margin="8dp"
+android:paddingHorizontal="20dp"
+        style="@style/TEXTBODY16"
+        />
+    <TextView
+        android:id="@+id/centerAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Center Address"
+        android:layout_margin="8dp"
+        android:paddingHorizontal="20dp"
+        android:layout_marginHorizontal="20dp"
+        style="@style/TEXTBODY16"/>
+    <TextView
+        android:id="@+id/centerVaccinationName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vaccine Name"
+        android:paddingHorizontal="20dp"
+        android:layout_margin="8dp"
+        style="@style/TEXTBODY16"
+        android:textColor="@color/green"
+        android:layout_marginHorizontal="20dp"
+        />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_check_availability"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Check Availability"
+            style="@style/TEXTBODY16"
+            android:backgroundTint="@color/accent"
+            android:layout_gravity="bottom|center"
+            android:layout_marginHorizontal="20dp"
+            app:cornerRadius="20dp"
+            android:layout_marginVertical="10dp"
+            />
+    </LinearLayout>
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

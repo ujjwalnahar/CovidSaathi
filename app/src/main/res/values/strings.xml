@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProjectUpma</string>
+    <string name="app_name">Covid Saathi</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="password">Password</string>
@@ -8,6 +8,7 @@
     <string name="submit_resource">Submit Resource</string>
     <string name="EditResource">Edit Resource Details</string>
     <string name="transition_string">UNIQUE_STRING</string>
+    <string name="userType">UserType</string>
     <string-array name="branches">
         <item>Computer Science</item>
         <item>Information Technology</item>
@@ -32,6 +33,10 @@
         <item>IT</item>
         <item>IP</item>
     </string-array>
+    <string-array name="type_vaccination">
+        <item>Search Centers Near you</item>
+        <item>Search By District</item>
+    </string-array>
     <string-array name="sem_list">
         <item>1</item>
         <item>2</item>
@@ -42,4 +47,11 @@
         <item>7</item>
         <item>8</item>
     </string-array>
+    <string-array name="post_types">
+        <item>No Mask Compliant</item>
+        <item>Crowd detected</item>
+        <item>Vaccination related</item>
+        <item>Others</item>
+    </string-array>
+
 </resources>

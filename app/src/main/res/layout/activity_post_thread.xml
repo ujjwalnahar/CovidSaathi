@@ -65,6 +65,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <Spinner
+                android:id="@+id/postTypeSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:padding="8dp"
+                android:entries="@array/post_types"
+                />
 
             <EditText
                 android:id="@+id/edtPostTitleAddPost"
@@ -92,7 +99,26 @@
                 android:alpha=".5"
                 android:text="Add image (Optional)"
                 android:textSize="10sp" />
+            <ImageView
+                android:id="@+id/imgPostBannerAddPost"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/grey10"
+                android:layout_marginTop="8dp"
+                android:padding="16dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/add_icon"
+                android:visibility="gone"/>
 
+            <TextView
+                android:id="@+id/txtAddBannerAddPost"
+                style="@style/TEXTBODY16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha=".5"
+                android:text="Add Banner (Optional)"
+                android:textSize="10sp"
+                android:visibility="gone"/>
             <EditText
 
                 android:id="@+id/edtPostDescriptionAddPost"

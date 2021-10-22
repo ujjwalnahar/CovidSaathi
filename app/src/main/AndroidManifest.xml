@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.projectupma">
+    package="com.covidsaathi">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -18,12 +18,15 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_covid"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_covid_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectUpma">
-        <activity android:name=".activities.PostThreadActivity"></activity>
+        <activity android:name=".activities.CenterAvailabilityActivity"></activity>
+        <activity android:name=".activities.NewHomeActivity" />
+        <activity android:name=".activities.SocietyThreadActivity" />
+        <activity android:name=".activities.PostThreadActivity" />
         <activity android:name=".activities.DizqusCommentActivity" />
         <activity android:name=".activities.DizqusQuestionActivity" />
         <activity android:name=".activities.DizqusThreadActivity" />
@@ -36,14 +39,17 @@
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity android:name=".activities.ApprovalActivity" />
         <activity android:name=".activities.SignupActivity" />
-        <activity android:name=".activities.LoginActivity"
-            android:noHistory="true"/>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:noHistory="true" />
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".services.FCMService"
             android:exported="false">
@@ -52,6 +58,9 @@
             </intent-filter>
         </service>
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDK0tGqYZh2_kj6XzMDVM9_4OsMu5aUlQQ" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -171,6 +171,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
+                    android:visibility="gone"
                     android:paddingTop="4dp"
                     app:endIconMode="clear_text">
 
@@ -194,7 +195,7 @@
                         android:id="@+id/rollNo_Signup_EditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Roll no"
+                        android:hint="Contact no"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 

@@ -49,7 +49,8 @@
                         android:id="@+id/imgProfilePhotoDizcusThreadItem"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="centerCrop" />
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/man"/>
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -66,13 +67,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/txtUsernameDisquzThreadItem"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
 
                             android:text="UserName"
                             android:textAppearance="@style/TEXTBODY16"
@@ -83,8 +83,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:paddingHorizontal="4dp"
-                            android:text="Branch"
+                            android:text="Type of Complaint"
                             android:textAppearance="@style/TEXTBODY16" />
 
                     </LinearLayout>

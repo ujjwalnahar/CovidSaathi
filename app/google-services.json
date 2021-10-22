@@ -1,41 +1,70 @@
 {
   "project_info": {
-    "project_number": "783277900298",
-    "project_id": "project-upma",
-    "storage_bucket": "project-upma.appspot.com"
+    "project_number": "306996759426",
+    "project_id": "covid-saathi-72942",
+    "storage_bucket": "covid-saathi-72942.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:783277900298:android:a6f6eb58d66bb0d356d5f3",
+        "mobilesdk_app_id": "1:306996759426:android:e876ceeb6f50e36ccc9d9b",
         "android_client_info": {
-          "package_name": "com.projectupma"
+          "package_name": "com.covidsaathi"
         }
       },
       "oauth_client": [
         {
-          "client_id": "783277900298-fvn90cntapjmra16a4nqa1pajc6ljvtt.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.projectupma",
-            "certificate_hash": "1999b4f64f06728f34b6c14c4da16aaaac86249e"
-          }
-        },
-        {
-          "client_id": "783277900298-a0vqvoipceo4ldkav4gvnlofmqap4o2a.apps.googleusercontent.com",
+          "client_id": "306996759426-lh2feauom78qsd6feri7oehk5i26uulv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDcPE2KDTU2Bl7QSXc6WUCTGBgQ2xb0L58"
+          "current_key": "AIzaSyDK0tGqYZh2_kj6XzMDVM9_4OsMu5aUlQQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "783277900298-a0vqvoipceo4ldkav4gvnlofmqap4o2a.apps.googleusercontent.com",
+              "client_id": "306996759426-lh2feauom78qsd6feri7oehk5i26uulv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306996759426:android:ffe650fa5e068cd8cc9d9b",
+        "android_client_info": {
+          "package_name": "com.example.covidsaathi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306996759426-111mqo5kdlhf325obka8p7oq1si4sc61.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.covidsaathi",
+            "certificate_hash": "dd091b418b8c748722b720891f9c0bc688c5992b"
+          }
+        },
+        {
+          "client_id": "306996759426-lh2feauom78qsd6feri7oehk5i26uulv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK0tGqYZh2_kj6XzMDVM9_4OsMu5aUlQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "306996759426-lh2feauom78qsd6feri7oehk5i26uulv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

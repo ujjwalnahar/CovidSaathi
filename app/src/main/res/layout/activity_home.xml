@@ -42,7 +42,7 @@
 
                     <fragment
                         android:id="@+id/topbar_fragment"
-                        android:name="com.projectupma.fragments.TopBarFragment"
+                        android:name="com.covidsaathi.fragments.TopBarFragment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 

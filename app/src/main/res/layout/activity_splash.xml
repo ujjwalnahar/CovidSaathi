@@ -7,14 +7,14 @@
     style="@style/BackgroundPane"
     tools:context=".activities.SplashActivity">
 
-    <TextView
+    <ImageView
         style="@style/TEXTBODY16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="gotoLoginActivity"
         android:fontFamily="@font/poppins_bold"
         android:textSize="64dp"
-        android:text="LOGO"
+        android:src="@drawable/covidsaathi2"
         android:textAppearance="@style/TEXTBODY16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

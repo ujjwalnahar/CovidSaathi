@@ -54,7 +54,6 @@
 
     <style name="EDITTEXTBODY16" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textColor">@color/secondarygrey</item>
-        <item name="android:background">@color/grey10</item>
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/poppins</item>
         <item name="android:textColorHint">@color/grey</item>

@@ -53,7 +53,7 @@
                     android:id="@+id/rollNumber_Login_TextInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Roll No"
+                    android:hint="Contact No"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
